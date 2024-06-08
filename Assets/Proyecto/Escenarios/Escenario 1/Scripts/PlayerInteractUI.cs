@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+
 public class PlayerInteractUI : MonoBehaviour
 {
     public PlayVoice playVoice;
@@ -17,7 +18,7 @@ public class PlayerInteractUI : MonoBehaviour
     }
 
     private void Update() {
-        if (playerInteract.GetInteractableObject() != null && !isAudioPlaying)
+        if (playerInteract.GetInteractableObject() != null && !isAudioPlaying && !playVoice.IsLastClip())
         {
             Show();
         }
@@ -29,7 +30,7 @@ public class PlayerInteractUI : MonoBehaviour
 
     private void Show()
     {
-        if(hasInteractedWithNPC)
+        if (hasInteractedWithNPC)
         {
             interactableText.text = "Volver a interactuar";
         }
@@ -42,18 +43,19 @@ public class PlayerInteractUI : MonoBehaviour
     {
         containerUI.SetActive(false);
     }
-    
+
     private void HideUiOnAudioPlay()
     {
         isAudioPlaying = true;
         hasInteractedWithNPC = true;
-       
     }
 
     private void ShowUiOnAudioEnd()
     {
         isAudioPlaying = false;
-        
+        if (playVoice.IsLastClip())
+        {
+            Hide();
+        }
     }
-    
 }

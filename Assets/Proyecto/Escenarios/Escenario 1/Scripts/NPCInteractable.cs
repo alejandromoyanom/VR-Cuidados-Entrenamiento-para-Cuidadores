@@ -24,10 +24,10 @@ public class NPCInteractable : MonoBehaviour
 
     private void Update()
     {
-       if (isNPCTalking)
-       {
-           NPCLookAt.position = targetVRPosition.position;
-       }
+        if (isNPCTalking)
+        {
+            NPCLookAt.position = targetVRPosition.position;
+        }
     }
 
     public void Interact()
@@ -35,9 +35,13 @@ public class NPCInteractable : MonoBehaviour
         if (!isNPCTalking)
         {
             playVoice.PlaySound();
-            animator.SetBool("isTalking", true);
-            isTalking?.Invoke(true);
         }
+    }
+
+    public void StartTalking()
+    {
+        animator.SetBool("isTalking", true);
+        isTalking?.Invoke(true);
     }
 
     private void ReturnToIdle()
