@@ -6,27 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_CarbonFiber_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_CarbonFiber_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Caster_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Caster_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Fabric_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Fabric_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlack_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlack_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlue_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlue_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Wheel_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Wheel_Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/AseoConfort.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/AseoConfort.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/AseoConfort.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/AseoConfort.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CuidadoPiel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CuidadoPiel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CuidadoPiel.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CuidadoPiel.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Medicamentos.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Medicamentos.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Medicamentos.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Medicamentos.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Movilizacion.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Movilizacion.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Movilizacion.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Movilizacion.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/SaludMental.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/SaludMental.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/NPCInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/NPCInteractable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayVoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayVoice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteractUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteractUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +113,8 @@
       <workItem from="1717638096827" duration="5240000" />
       <workItem from="1717644356389" duration="1558000" />
       <workItem from="1717646555975" duration="1808000" />
+      <workItem from="1717968497967" duration="6062000" />
+      <workItem from="1717978442626" duration="8232000" />
     </task>
     <servers />
   </component>
