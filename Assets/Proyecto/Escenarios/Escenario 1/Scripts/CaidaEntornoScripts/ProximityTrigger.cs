@@ -5,6 +5,13 @@ using UnityEngine;
 public class ProximityTrigger : MonoBehaviour
 {
     public WaterCleaning waterCleaningScript;
+    private void Start()
+    {
+        if (waterCleaningScript != null)
+        {
+            waterCleaningScript.SetWaterCollider(GetComponent<Collider>());
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

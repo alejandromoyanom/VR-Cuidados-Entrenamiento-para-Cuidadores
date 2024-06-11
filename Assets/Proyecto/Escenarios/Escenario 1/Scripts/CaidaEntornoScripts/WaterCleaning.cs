@@ -15,15 +15,26 @@ public class WaterCleaning : MonoBehaviour
     public GameObject water; // Referencia al objeto de agua
     private float valuePercentage = 0f;
     private bool isCleaning = false;
+    
+    private XRGrabInteractable grabInteractable;
+    private Collider waterCollider;
 
     void Start()
     {
         canvas.SetActive(false); // Asegúrate de que el canvas esté desactivado al iniciar el juego
+        grabInteractable = GetComponent<XRGrabInteractable>();
+        grabInteractable.selectEntered.AddListener(OnSelectEnter);
     }
 
     void Update()
     {
-        if (isCleaning)
+        if (!grabInteractable.isSelected)
+        {
+            canvas.SetActive(false);
+            isCleaning = false;
+        }
+        
+        if (isCleaning && grabInteractable.isSelected)
         {
             if (valuePercentage >= 100f)
             {
@@ -33,7 +44,7 @@ public class WaterCleaning : MonoBehaviour
             }
             else
             {
-                valuePercentage += 0.25f;
+                valuePercentage += 0.3f;
                 barPercentage.rectTransform.sizeDelta = new Vector2(valuePercentage, barPercentage.rectTransform.sizeDelta.y);
                 percentage.text = Math.Floor(valuePercentage).ToString() + "%";
             }
@@ -43,16 +54,32 @@ public class WaterCleaning : MonoBehaviour
     public void StartCleaning()
     {
         isCleaning = true;
+        canvas.SetActive(true);
     }
 
     public void StopCleaning()
     {
         isCleaning = false;
+        canvas.SetActive(false);
     }
 
     private void RemoveWater()
     {
         water.SetActive(false); // O destruir el objeto: Destroy(water);
         isCleaning = false;
+    }
+    
+    private void OnSelectEnter(SelectEnterEventArgs args)
+    {
+        // Verificar si el paño está dentro del collider del agua cuando se recoge
+        if (waterCollider != null && waterCollider.bounds.Contains(transform.position))
+        {
+            StartCleaning();
+        }
+    }
+    
+    public void SetWaterCollider(Collider collider)
+    {
+        waterCollider = collider;
     }
 }

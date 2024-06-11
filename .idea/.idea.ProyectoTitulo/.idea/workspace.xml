@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ropa.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ropa.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XRI/Settings/Resources/InteractionLayerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/ProximityTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/ProximityTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/WaterCleaning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/WaterCleaning.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/Socket/ObjectVR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/Socket/ObjectVR.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +117,9 @@
       <workItem from="1717644356389" duration="1558000" />
       <workItem from="1717646555975" duration="1808000" />
       <workItem from="1717968497967" duration="6062000" />
-      <workItem from="1717978442626" duration="8232000" />
+      <workItem from="1717978442626" duration="8323000" />
+      <workItem from="1718056820660" duration="822000" />
+      <workItem from="1718062159197" duration="4078000" />
     </task>
     <servers />
   </component>

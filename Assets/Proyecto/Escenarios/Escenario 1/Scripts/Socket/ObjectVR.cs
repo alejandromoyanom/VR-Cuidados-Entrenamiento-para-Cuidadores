@@ -8,11 +8,13 @@ public class ObjectVR : MonoBehaviour
     public GameObject socket; // Referencia al socket específico asociado al objeto
     private XRGrabInteractable grabInteractable; // Componente para detectar si está siendo agarrado
     private bool isNearSocket = false; // Bandera para verificar si el objeto está cerca del socket
+     private Outline outline;
 
     void Start()
     {
         // Obtener el componente XRGrabInteractable si está presente
         grabInteractable = GetComponent<XRGrabInteractable>();
+        outline = GetComponent<Outline>();
 
         if (grabInteractable == null)
         {
@@ -45,12 +47,22 @@ public class ObjectVR : MonoBehaviour
             // Posicionar el objeto en el socket
             transform.position = socket.transform.position;
             transform.rotation = socket.transform.rotation;
+            
+            if (outline != null)
+            {
+                outline.enabled = false;
+            }
 
         }
         else
         {
             // Desactivar el socket si no está cerca
             socket.SetActive(false);
+            
+            if (outline != null)
+            {
+                outline.enabled = true;
+            }
         }
     }
 
