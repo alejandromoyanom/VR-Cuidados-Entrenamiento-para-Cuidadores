@@ -9,8 +9,10 @@ public class GameStartMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject options;
     public GameObject about;
+    public GameObject continuar;
 
     [Header("Main Menu Buttons")]
+    public Button continuarButton;
     public Button startButton;
     public Button optionButton;
     public Button aboutButton;
@@ -24,6 +26,7 @@ public class GameStartMenu : MonoBehaviour
         EnableMainMenu();
 
         //Hook events
+        continuarButton.onClick.AddListener(Continuar);
         startButton.onClick.AddListener(StartGame);
         optionButton.onClick.AddListener(EnableOption);
         aboutButton.onClick.AddListener(EnableAbout);
@@ -66,6 +69,12 @@ public class GameStartMenu : MonoBehaviour
         about.SetActive(false);
     }
     public void EnableAbout()
+    {
+        mainMenu.SetActive(false);
+        options.SetActive(false);
+        about.SetActive(true);
+    }
+    public void Continuar()
     {
         mainMenu.SetActive(false);
         options.SetActive(false);

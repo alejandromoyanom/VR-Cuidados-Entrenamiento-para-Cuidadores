@@ -6,172 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/NPC Animator Controller.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/NPC Animator Controller.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Male Sitting Pose.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Male Sitting Pose.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Sitting Idle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Sitting Idle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Sitting Talking.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Sitting Talking.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Walking.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Animations/X Bot@Walking.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Images.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Images/NPC.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Images/NPC/control-Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Images/NPC/control-Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/Amarillo.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/Amarillo.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/GhostMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/GhostMaterial.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_CarbonFiber_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_CarbonFiber_Mat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Caster_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Caster_Mat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Fabric_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Fabric_Mat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlack_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlack_Mat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlue_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_MetallicBlue_Mat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_StainlessSteel_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_StainlessSteel_Mat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Wheel_Mat.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Materials/VRWC_Materials/VRWC_Wheel_Mat.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Models/wheelchair.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Models/wheelchair.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Canvas Agua.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Canvas Agua.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Casa_Embarazada.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Casa_Embarazada.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/AlcoholGhost.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/AlcoholGhost.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/CojinGhost.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/CojinGhost.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/DVDGhost.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/DVDGhost.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/LibrosGhost.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/LibrosGhost.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/Ropa.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/Ghosts/Ropa.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/NPC UI Canvas.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/NPC UI Canvas.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/SM_Bld_Shop_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/SM_Bld_Shop_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/SillaRuedas.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/SillaRuedas/WheelChair.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Prefabs/SillaRuedas/WheelChair.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/AseoConfort.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/AseoConfort.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/CaidaEntorno.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Movilizacion.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/Movilizacion.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/SaludMental.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scenes/SaludMental.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/CenterCanvasOnVR.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/CenterCanvasOnVR.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/CleaningTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/CleaningTrigger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/ProximityTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/ProximityTrigger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/WaterCleaning.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/CaidaEntornoScripts/WaterCleaning.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/NPCInteractable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/NPCInteractable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayVoice.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayVoice.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteract.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteract.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteractUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/PlayerInteractUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/Socket.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/Socket/ObjectVR.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Scripts/Socket/ObjectVR.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/01-NPC-Respuesta.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/01-NPC-Respuesta.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/01-Saludo.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/01-Saludo.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/02-NPC-Respuesta.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/02-NPC-Respuesta.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/02-Respuesta.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/02-Respuesta.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/03-NPC-Respuesta.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/03-NPC-Respuesta.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/03-Respuesta.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/03-Respuesta.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/04-NPC-Respuesta.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/04-NPC-Respuesta.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/04-Respuesta.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/04-Respuesta.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/Prueba_Audio.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Sounds/Prueba_Audio.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Color.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Displacement.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Displacement.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Metalness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Metalness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Carbon_Fiber_2k-PNG/Fabric004_2k_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Caster_2K-PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Caster_2K-PNG/caster_color_2K.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Caster_2K-PNG/caster_color_2K.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Caster_2K-PNG/caster_metalness_2K.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Caster_2K-PNG/caster_metalness_2K.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Caster_2K-PNG/caster_normal_2K.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Caster_2K-PNG/caster_normal_2K.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Fabric_Grey_2K-PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Fabric_Grey_2K-PNG/Fabric039_2K_Color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Fabric_Grey_2K-PNG/Fabric039_2K_Color.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Fabric_Grey_2K-PNG/Fabric039_2K_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Fabric_Grey_2K-PNG/Fabric039_2K_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Color.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Metalness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Metalness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Roughness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_2_2K-PNG/Metal029_2K_Roughness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_3_2K-PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_3_2K-PNG/Metal011_2K_Color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_3_2K-PNG/Metal011_2K_Color.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_3_2K-PNG/Metal011_2K_Metalness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_3_2K-PNG/Metal011_2K_Metalness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_3_2K-PNG/Metal011_2K_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_3_2K-PNG/Metal011_2K_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_Painted_Blue_2K-PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_Painted_Blue_2K-PNG/PaintedMetal002_2K_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_Painted_Blue_2K-PNG/PaintedMetal002_2K_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_Painted_Blue_2K-PNG/Porcelain003_2K_Displacement.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_Painted_Blue_2K-PNG/Porcelain003_2K_Displacement.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_Painted_Blue_2K-PNG/Porcelain003_2K_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Metal_Painted_Blue_2K-PNG/Porcelain003_2K_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Wheel_4K-PNG.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Wheel_4K-PNG/wheel_color_4K.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Wheel_4K-PNG/wheel_color_4K.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Wheel_4K-PNG/wheel_metalness_4K.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Wheel_4K-PNG/wheel_metalness_4K.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Wheel_4K-PNG/wheel_normal_4K.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/Textures/VRWC_Textures/Wheel_4K-PNG/wheel_normal_4K.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/Escenario 1/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Game Menu ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Game Menu ground.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/Movilizacion 1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/Movilizacion 1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Start Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Start Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStartMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStartMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,6 +130,7 @@
       <workItem from="1718729029042" duration="1742000" />
       <workItem from="1718730804129" duration="5003000" />
       <workItem from="1719003920810" duration="2032000" />
+      <workItem from="1719198262023" duration="2719000" />
     </task>
     <servers />
   </component>
