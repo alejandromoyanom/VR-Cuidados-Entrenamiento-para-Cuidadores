@@ -9,11 +9,12 @@ TagManager:
   - CleaningTool
   - Socket
   - VRController
+  - Wheelchair
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NPC
   - Water
   - UI
   - 

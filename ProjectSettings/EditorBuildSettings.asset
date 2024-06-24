@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene.unity
+    guid: 064f4bb94c0ab2a42bdc890873dbd173
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity
+    guid: 5a57ef5c29c48e944b3f5f758b3974f4
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/CaidaEntorno.unity
+    guid: d620caeee85c9ee429d01016bccf2536
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/Movilizacion.unity
+    guid: 6905a244275f48048a5ec0eba6dc8000
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/SaludMental.unity
+    guid: 6f21344cb812a1b48ae5ad747238bb4b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2779588573464a543a0dbb71383168a9,
       type: 2}
