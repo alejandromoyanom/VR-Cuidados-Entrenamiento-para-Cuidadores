@@ -10,6 +10,7 @@ TagManager:
   - Socket
   - VRController
   - Wheelchair
+  - Pickupable
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - NPC
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Objetos
   - 
   - 
   - 
