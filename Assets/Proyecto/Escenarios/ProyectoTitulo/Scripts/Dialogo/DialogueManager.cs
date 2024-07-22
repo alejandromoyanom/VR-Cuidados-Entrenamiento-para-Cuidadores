@@ -100,6 +100,12 @@ public class DialogueManager : MonoBehaviour
             // Obtiene la pregunta actual
             Question currentQuestion = dialogues[currentDialogueIndex].questions[currentQuestionIndex];
             questionText.text = currentQuestion.questionText; // Muestra el texto de la pregunta
+            
+            foreach (var button in optionButtons)
+            {
+                button.GetComponent<Button>().interactable = true;
+                button.GetComponent<Button>().OnDeselect(null);
+            }
 
             // Configura los botones para las opciones de respuesta
             for (int i = 0; i < optionButtons.Count; i++)
