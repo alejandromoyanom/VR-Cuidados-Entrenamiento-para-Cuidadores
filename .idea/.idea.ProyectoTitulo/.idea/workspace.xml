@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/SaludMental.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/SaludMental.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Dialogo/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Dialogo/DialogueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/Caja.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/Caja.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +135,7 @@
       <workItem from="1719979547662" duration="6000" />
       <workItem from="1719979608806" duration="6957000" />
       <workItem from="1720063617768" duration="2170000" />
+      <workItem from="1722218342728" duration="1284000" />
     </task>
     <servers />
   </component>
