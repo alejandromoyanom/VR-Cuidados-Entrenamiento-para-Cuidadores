@@ -15,7 +15,7 @@ public class TwoPointGrab : MonoBehaviour
     
     public Transform rightAttachPoint;
     
-    private float slowMoveSpeed = 0.5f; // Velocidad reducida al levantar el objeto
+    private float slowMoveSpeed = 0.3f; // Velocidad reducida al levantar el objeto
     private float slowTurnSpeed = 20f; // Velocidad de giro reducida al levantar el objeto
     private float originalMoveSpeed;
     private float originalTurnSpeed;
