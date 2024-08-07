@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class TwoPointGrab : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class TwoPointGrab : MonoBehaviour
     public Transform[] snapPoints;
     
     public Transform rightAttachPoint;
+    
+    private float slowMoveSpeed = 0.5f; // Velocidad reducida al levantar el objeto
+    private float slowTurnSpeed = 20f; // Velocidad de giro reducida al levantar el objeto
+    private float originalMoveSpeed;
+    private float originalTurnSpeed;
 
     private XRGrabInteractable grabInteractable;
     private Rigidbody rb;
@@ -23,11 +29,30 @@ public class TwoPointGrab : MonoBehaviour
     private bool isSeated = false; // Indica si el personaje está en la silla
     private bool canAnimate = true;
 
+    private ContinuousMoveProviderBase moveProvider;
+    private ContinuousTurnProviderBase turnProvider;
+
     void Start()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        
+        // Obtener los componentes de movimiento y giro del XR Origin
+        moveProvider = FindObjectOfType<ContinuousMoveProviderBase>();
+        turnProvider = FindObjectOfType<ContinuousTurnProviderBase>();
+        
+        
+        // Guardar las velocidades originales
+        if (moveProvider != null)
+        {
+            originalMoveSpeed = moveProvider.moveSpeed;
+        }
+
+        if (turnProvider != null)
+        {
+            originalTurnSpeed = turnProvider.turnSpeed;
+        }
 
         // Inicialmente, congelar todas las posiciones y rotaciones
         rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -36,7 +61,7 @@ public class TwoPointGrab : MonoBehaviour
         grabInteractable.selectEntered.AddListener(OnGrab);
         grabInteractable.selectExited.AddListener(OnRelease);
 
-        // Activar colliders iniciales (asumimos que inicia sentado)
+        // Activar colliders iniciales
         SetCollidersActive(sittingColliders, true);
         SetCollidersActive(standingColliders, false);
     }
@@ -82,8 +107,6 @@ public class TwoPointGrab : MonoBehaviour
         {
             if (isSeated)
             {
-                // Si está sentado, mantenerlo en la silla
-                //rb.constraints = RigidbodyConstraints.FreezeAll;
                 return;
             }
             if (!hasStoodUp)
@@ -108,6 +131,7 @@ public class TwoPointGrab : MonoBehaviour
                 animator.SetBool("isQuiet", true);
                
                 rb.constraints = RigidbodyConstraints.FreezeAll;
+                RestoreMovementAndTurnSpeeds();
 
                 // Resetear bandera de mano izquierda
                 isLeftHandFirst = false;
@@ -128,8 +152,8 @@ public class TwoPointGrab : MonoBehaviour
             
             if (canAnimate) // Solo activar si las animaciones están permitidas
             {
-                animator.SetTrigger("StartLegMovement");
-                Debug.Log("Animación de movimiento de piernas activada.");
+                
+                animator.SetBool("StartLegMovement", true);
             }
 
             // Desmarcar el isTrigger del collider específico al agarrar
@@ -145,6 +169,34 @@ public class TwoPointGrab : MonoBehaviour
                 AdjustAttachPoint();
                 adjustedAttachPoint = true;
             }
+            
+            ReduceMovementAndTurnSpeeds();
+        }
+    }
+    
+    void ReduceMovementAndTurnSpeeds()
+    {
+        if (moveProvider != null)
+        {
+            moveProvider.moveSpeed = slowMoveSpeed;
+        }
+
+        if (turnProvider != null)
+        {
+            turnProvider.turnSpeed = slowTurnSpeed;
+        }
+    }
+
+    void RestoreMovementAndTurnSpeeds()
+    {
+        if (moveProvider != null)
+        {
+            moveProvider.moveSpeed = originalMoveSpeed;
+        }
+
+        if (turnProvider != null)
+        {
+            turnProvider.turnSpeed = originalTurnSpeed;
         }
     }
 
@@ -164,13 +216,14 @@ public class TwoPointGrab : MonoBehaviour
             isSeated = true; // Marcar como sentado
             
             canAnimate = false;
+            
+            RestoreMovementAndTurnSpeeds();
 
 
             // Cambiar a la animación de estar sentado
             animator.SetTrigger("SitInChair");
+            animator.SetBool("StartLegMovement", false);
             animator.SetBool("isQuiet", false);
-            
-            Debug.Log("isQuiet set to: " + animator.GetBool("isQuiet"));
             
             
 
