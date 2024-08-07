@@ -11,6 +11,7 @@ TagManager:
   - VRController
   - Wheelchair
   - Pickupable
+  - LeftHand
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - UI
   - Player
   - Objetos
-  - 
-  - 
+  - Character
+  - Personaje
   - 
   - 
   - 
