@@ -6,14 +6,18 @@ public class ShoeGrab : MonoBehaviour
     public GameObject socket; // Referencia al socket específico asociado al zapato
     private XRGrabInteractable grabInteractable; // Componente para detectar si está siendo agarrado
     private Rigidbody rb;
+    private Collider objectCollider;
+    public Transform attachPoint;
+    private Transform neutralContainer; // Contenedor neutral en la escena
     private bool isNearSocket = false; // Bandera para verificar si el zapato está cerca del socket
 
     void Start()
     {
         // Obtener el componente XRGrabInteractable si está presente
         grabInteractable = GetComponent<XRGrabInteractable>();
-        
+        neutralContainer = GameObject.Find("NeutralContainer").transform;
         rb = GetComponent<Rigidbody>();
+        objectCollider = GetComponent<Collider>();
 
         if (grabInteractable == null)
         {
@@ -32,6 +36,9 @@ public class ShoeGrab : MonoBehaviour
     {
         // Al agarrar, desbloquear las restricciones para que el zapato pueda moverse
         rb.constraints = RigidbodyConstraints.None;
+        
+        transform.SetParent(neutralContainer);
+        
         // Activar el socket al agarrar el zapato
         socket.SetActive(true);
     }
@@ -40,15 +47,15 @@ public class ShoeGrab : MonoBehaviour
     {
         if (isNearSocket)
         {
-            // Obtener el Attach Transform del socket
-            XRSocketInteractor socketInteractor = socket.GetComponent<XRSocketInteractor>();
-            Transform attachTransform = socketInteractor.attachTransform != null ? socketInteractor.attachTransform : socket.transform;
 
+            objectCollider.enabled = false;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            transform.SetParent(neutralContainer);
+            
             // Alinear la posición y rotación del zapato con el Attach Transform del socket
-            transform.position = attachTransform.position;
-            transform.rotation = attachTransform.rotation;
-
-
+            transform.position = attachPoint.position;
+            transform.rotation = attachPoint.rotation;
+            
             // Desactivar el componente XRGrabInteractable para evitar que el zapato se agarre nuevamente
             grabInteractable.enabled = false;
 
@@ -69,6 +76,8 @@ public class ShoeGrab : MonoBehaviour
             isNearSocket = true;
         }
     }
+    
+
 
     void OnTriggerExit(Collider other)
     {
