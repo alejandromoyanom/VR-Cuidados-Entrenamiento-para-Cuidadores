@@ -13,6 +13,9 @@ public class WaterCleaning : MonoBehaviour
     [SerializeField] private RawImage barPercentage;
     
     public GameObject water; // Referencia al objeto de agua
+    public Transform vrCamera; // La cámara VR
+    
+    
     private float valuePercentage = 0f;
     private bool isCleaning = false;
     
@@ -53,6 +56,9 @@ public class WaterCleaning : MonoBehaviour
 
     public void StartCleaning()
     {
+        Vector3 cameraPosition = vrCamera.position + vrCamera.forward * 1.0f; // Ajusta la distancia según sea necesario
+        transform.position = cameraPosition;
+        transform.rotation = Quaternion.LookRotation(transform.position - vrCamera.position);
         isCleaning = true;
         canvas.SetActive(true);
     }

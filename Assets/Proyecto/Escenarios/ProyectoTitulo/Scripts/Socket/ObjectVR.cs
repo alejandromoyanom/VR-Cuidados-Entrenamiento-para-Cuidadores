@@ -8,12 +8,21 @@ public class ObjectVR : MonoBehaviour
     private bool isNearSocket = false; // Bandera para verificar si el objeto está cerca del socket
     private Outline outline;
     public UISocketCounter uiSocketCounter; // Referencia al script UISocketCounter para incrementar el contador
+    private Rigidbody rb;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
 
     void Start()
     {
         // Obtener el componente XRGrabInteractable si está presente
         grabInteractable = GetComponent<XRGrabInteractable>();
         outline = GetComponent<Outline>();
+        rb = GetComponent<Rigidbody>();
+        
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
 
         if (grabInteractable == null)
         {
@@ -30,6 +39,7 @@ public class ObjectVR : MonoBehaviour
 
     void OnGrabbed(SelectEnterEventArgs args)
     {
+        rb.constraints = RigidbodyConstraints.None;
         // Activar el socket al agarrar el objeto
         socket.SetActive(true);
     }
@@ -41,6 +51,7 @@ public class ObjectVR : MonoBehaviour
             // Posicionar el objeto en el socket
             transform.position = socket.transform.position;
             transform.rotation = socket.transform.rotation;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
 
             // Desactivar el componente XRGrabInteractable para evitar que el objeto se agarre nuevamente
             grabInteractable.enabled = false;
@@ -67,6 +78,10 @@ public class ObjectVR : MonoBehaviour
         }
         else
         {
+            
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             // Desactivar el socket si no está cerca
             socket.SetActive(false);
             

@@ -10,6 +10,10 @@ public class ShoeGrab : MonoBehaviour
     public Transform attachPoint;
     private Transform neutralContainer; // Contenedor neutral en la escena
     private bool isNearSocket = false; // Bandera para verificar si el zapato está cerca del socket
+    
+    // Campos para almacenar la posición y rotación originales
+    private Vector3 savedPosition;
+    private Quaternion savedRotation;
 
     void Start()
     {
@@ -18,6 +22,7 @@ public class ShoeGrab : MonoBehaviour
         neutralContainer = GameObject.Find("NeutralContainer").transform;
         rb = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
+        
 
         if (grabInteractable == null)
         {
@@ -34,11 +39,21 @@ public class ShoeGrab : MonoBehaviour
 
     void OnGrabbed(SelectEnterEventArgs args)
     {
-        // Al agarrar, desbloquear las restricciones para que el zapato pueda moverse
-        rb.constraints = RigidbodyConstraints.None;
         
+        // Almacenar la posición y rotación globales antes de cambiar el padre
+        savedPosition = transform.position;
+        savedRotation = transform.rotation;
+
+        // Desvincular el zapato del personaje
         transform.SetParent(neutralContainer);
-        
+
+        // Restaurar la posición y rotación globales para evitar movimientos inesperados
+        transform.position = savedPosition;
+        transform.rotation = savedRotation;
+
+        // Desbloquear las restricciones para que el zapato pueda moverse
+        rb.constraints = RigidbodyConstraints.None;
+
         // Activar el socket al agarrar el zapato
         socket.SetActive(true);
     }
@@ -66,6 +81,9 @@ public class ShoeGrab : MonoBehaviour
         {
             // Desactivar el socket si no está cerca
             socket.SetActive(false);
+            transform.position = savedPosition;
+            transform.rotation = savedRotation;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
