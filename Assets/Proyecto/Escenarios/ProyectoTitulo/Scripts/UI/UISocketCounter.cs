@@ -4,12 +4,13 @@ using System.Collections;
 
 public class UISocketCounter : MonoBehaviour
 {
+    public GameObject paño;
     public Transform vrCamera; // La cámara VR
     public int totalObjects = 5; // Total de objetos a colocar
     private int currentCount = 0; // Conteo actual
     public TextMeshProUGUI counterText; // El texto de la UI
     public GameObject canvas; // Referencia al Canvas
-    public float delayBeforeHide = 2f; // Tiempo de espera antes de desactivar el Canvas
+    private float delayBeforeHide = 2f; // Tiempo de espera antes de desactivar el Canvas
 
     void Start()
     {
@@ -46,5 +47,6 @@ public class UISocketCounter : MonoBehaviour
         // Esperar el tiempo especificado antes de desactivar el Canvas
         yield return new WaitForSeconds(delayBeforeHide);
         canvas.SetActive(false);
+        paño.SetActive(true);
     }
 }
