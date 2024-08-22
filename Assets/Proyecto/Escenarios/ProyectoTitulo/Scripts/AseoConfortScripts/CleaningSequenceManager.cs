@@ -35,4 +35,13 @@ public class CleaningSequenceManager : MonoBehaviour
         // Activar la herramienta en el índice dado
         toolsInSequence[index].SetInteractable(true);
     }
+    
+    public CleaningTool GetCurrentTool()
+    {
+        if (toolsInSequence != null && toolsInSequence.Count > 0 && currentToolIndex < toolsInSequence.Count)
+        {
+            return toolsInSequence[currentToolIndex];
+        }
+        return null;
+    }
 }

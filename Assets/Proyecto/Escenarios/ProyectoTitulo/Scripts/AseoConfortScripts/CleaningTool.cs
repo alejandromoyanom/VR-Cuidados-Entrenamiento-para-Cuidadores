@@ -14,6 +14,7 @@ public class CleaningTool : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     private Collider targetCollider;
     private bool isCleaning = false;
+    private bool isCompleted = false; // Indica si la limpieza ya se completó
     private float currentCleaningProgress = 0f;
     private CleaningSequenceManager sequenceManager;
 
@@ -25,8 +26,11 @@ public class CleaningTool : MonoBehaviour
         // Encontrar el manager
         sequenceManager = FindObjectOfType<CleaningSequenceManager>();
 
-        // Iniciar con el grab interactable desactivado
-        //SetInteractable(false);
+        // Si el objeto no es el primero en la secuencia, desactivarlo
+        if (sequenceManager.GetCurrentTool() != this)
+        {
+            SetInteractable(false);
+        }
     }
 
     void Update()
@@ -55,14 +59,17 @@ public class CleaningTool : MonoBehaviour
 
     private void StartCleaning()
     {
-        isCleaning = true;
-        canvas.SetActive(true); // Reactivar el canvas al iniciar la limpieza
+        if (!isCompleted) // Solo reiniciar el progreso si no se ha completado
+        {
+            isCleaning = true;
+            canvas.SetActive(true);
+        }
     }
 
     private void StopCleaning()
     {
         isCleaning = false;
-        canvas.SetActive(false); 
+        canvas.SetActive(false); // Opcional, ocultar el canvas si lo deseas al detener la limpieza
     }
 
     private void UpdateCleaningProcess()
@@ -83,14 +90,35 @@ public class CleaningTool : MonoBehaviour
         fillImage.fillAmount = 1f;
         progressText.text = "100%";
         canvas.SetActive(false);
+        isCompleted = true; // Marcar la herramienta como completada
         sequenceManager.ToolCompleted(this);
     }
 
     public void SetInteractable(bool state)
     {
-        grabInteractable.enabled = state;
+        if (grabInteractable != null)
+        {
+            grabInteractable.enabled = state;
+
+            if (state)
+            {
+                // Resetear el progreso al activar la herramienta
+                ResetProgress();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("XRGrabInteractable no está asignado en " + gameObject.name);
+        }
     }
 
+    private void ResetProgress()
+    {
+        currentCleaningProgress = 0f;
+        fillImage.fillAmount = 0f;
+        progressText.text = "";
+        isCompleted = false;  
+    }
     private void UpdateProgressValue(float progress)
     {
         fillImage.fillAmount = progress;
