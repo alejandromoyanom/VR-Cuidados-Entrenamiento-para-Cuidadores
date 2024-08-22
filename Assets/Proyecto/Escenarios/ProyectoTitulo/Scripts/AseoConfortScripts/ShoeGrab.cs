@@ -9,7 +9,9 @@ public class ShoeGrab : MonoBehaviour
     private Collider objectCollider;
     public Transform attachPoint;
     private Transform neutralContainer; // Contenedor neutral en la escena
+    private ShoeManager shoeManager; // Referencia al ShoeManager
     private bool isNearSocket = false; // Bandera para verificar si el zapato está cerca del socket
+    private Outline outline;
     
     // Campos para almacenar la posición y rotación originales
     private Vector3 savedPosition;
@@ -20,8 +22,10 @@ public class ShoeGrab : MonoBehaviour
         // Obtener el componente XRGrabInteractable si está presente
         grabInteractable = GetComponent<XRGrabInteractable>();
         neutralContainer = GameObject.Find("NeutralContainer").transform;
+        outline = GetComponent<Outline>();
         rb = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
+        shoeManager = FindObjectOfType<ShoeManager>(); 
         
 
         if (grabInteractable == null)
@@ -56,6 +60,12 @@ public class ShoeGrab : MonoBehaviour
 
         // Activar el socket al agarrar el zapato
         socket.SetActive(true);
+        
+        
+        if (outline != null)
+        {
+            outline.enabled = false;
+        }
     }
 
     void OnReleased(SelectExitEventArgs args)
@@ -73,6 +83,8 @@ public class ShoeGrab : MonoBehaviour
             
             // Desactivar el componente XRGrabInteractable para evitar que el zapato se agarre nuevamente
             grabInteractable.enabled = false;
+            
+            shoeManager.ShoePlaced();
 
             // Desactivar el socket
             socket.SetActive(false);

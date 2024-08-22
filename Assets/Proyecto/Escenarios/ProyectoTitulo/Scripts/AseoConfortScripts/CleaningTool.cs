@@ -17,19 +17,28 @@ public class CleaningTool : MonoBehaviour
     private bool isCompleted = false; // Indica si la limpieza ya se completó
     private float currentCleaningProgress = 0f;
     private CleaningSequenceManager sequenceManager;
-
+    private Outline outline;
+    
     void Start()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
         targetCollider = targetObject.GetComponent<Collider>();
-
-        // Encontrar el manager
+        
         sequenceManager = FindObjectOfType<CleaningSequenceManager>();
+        outline = GetComponent<Outline>();
 
         // Si el objeto no es el primero en la secuencia, desactivarlo
         if (sequenceManager.GetCurrentTool() != this)
         {
             SetInteractable(false);
+        }
+        else
+        {
+            // Activar outline para la primera herramienta en la secuencia
+            if (outline != null)
+            {
+                outline.enabled = true;
+            }
         }
     }
 
@@ -63,6 +72,11 @@ public class CleaningTool : MonoBehaviour
         {
             isCleaning = true;
             canvas.SetActive(true);
+            
+            if (outline != null)
+            {
+                outline.enabled = false;
+            }
         }
     }
 
@@ -99,16 +113,17 @@ public class CleaningTool : MonoBehaviour
         if (grabInteractable != null)
         {
             grabInteractable.enabled = state;
+            
+            if (outline != null)
+            {
+                outline.enabled = state;
+            }
 
             if (state)
             {
                 // Resetear el progreso al activar la herramienta
                 ResetProgress();
             }
-        }
-        else
-        {
-            Debug.LogWarning("XRGrabInteractable no está asignado en " + gameObject.name);
         }
     }
 
