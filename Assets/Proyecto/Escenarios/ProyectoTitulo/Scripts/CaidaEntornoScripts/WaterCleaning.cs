@@ -15,13 +15,14 @@ public class WaterCleaning : MonoBehaviour
 
     private bool isCleaning = false;
     private XRGrabInteractable grabInteractable;
-    public BoxCollider waterCollider;
+    private BoxCollider waterCollider;
     private bool isInsideWaterCollider = false; // Para verificar si el paño está dentro del agua
 
     void Start()
     {
         canvas.SetActive(false); // Asegúrate de que el canvas esté desactivado al iniciar el juego
         grabInteractable = GetComponent<XRGrabInteractable>();
+        waterCollider = water.GetComponent<BoxCollider>();
 
         // Suscribirse al evento de selección
         grabInteractable.selectEntered.AddListener(OnSelectEnter);

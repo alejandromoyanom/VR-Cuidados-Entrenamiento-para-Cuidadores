@@ -3,7 +3,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform vrCamera; // La cámara VR
-    private Vector3 offset = new Vector3(0, 0, 1); // Ajusta la distancia según sea necesario
+    private Vector3 offset = new Vector3(0, 0, 0.5f); // Ajusta la distancia según sea necesario
 
     void Update()
     {
