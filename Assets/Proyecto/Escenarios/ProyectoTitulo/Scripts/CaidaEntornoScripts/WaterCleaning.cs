@@ -12,84 +12,97 @@ public class WaterCleaning : MonoBehaviour
     [SerializeField] private float animationDuration = 5f; // Duración de la animación
 
     public GameObject water; // Referencia al objeto de agua
-    
+
     private bool isCleaning = false;
     private XRGrabInteractable grabInteractable;
-    private Collider waterCollider;
+    public BoxCollider waterCollider;
+    private bool isInsideWaterCollider = false; // Para verificar si el paño está dentro del agua
 
     void Start()
     {
         canvas.SetActive(false); // Asegúrate de que el canvas esté desactivado al iniciar el juego
         grabInteractable = GetComponent<XRGrabInteractable>();
+
+        // Suscribirse al evento de selección
         grabInteractable.selectEntered.AddListener(OnSelectEnter);
+        grabInteractable.selectExited.AddListener(OnSelectExit);
     }
 
     void Update()
     {
-        if (!grabInteractable.isSelected)
+        if (isInsideWaterCollider && grabInteractable.isSelected)
         {
-            StopCleaning(); // Detenemos la limpieza si el objeto no está seleccionado
+            StartCleaning();
         }
-
-        if (isCleaning && grabInteractable.isSelected)
+        else
         {
-            if (fillImage.fillAmount >= 1f)
-            {
-                RemoveWater();
-            }
-            else
-            {
-                UpdateProgressValue(Mathf.Clamp01(fillImage.fillAmount + Time.deltaTime / animationDuration));
-            }
+            StopCleaning();
         }
     }
 
-    public void StartCleaning()
+    private void StartCleaning()
     {
-        isCleaning = true;
-        canvas.SetActive(true);
+        if (!isCleaning) // Solo iniciar si no se está limpiando ya
+        {
+            isCleaning = true;
+            canvas.SetActive(true);
+        }
+
+        if (fillImage.fillAmount < 1f)
+        {
+            UpdateProgressValue(Mathf.Clamp01(fillImage.fillAmount + Time.deltaTime / animationDuration));
+        }
+        else
+        {
+            CompleteCleaning();
+        }
     }
 
-    public void StopCleaning()
+    private void StopCleaning()
     {
-        isCleaning = false;
+        if (isCleaning) // Solo detener si se estaba limpiando
+        {
+            isCleaning = false;
+            canvas.SetActive(false);
+        }
+    }
+
+    private void CompleteCleaning()
+    {
+        fillImage.fillAmount = 1f;
         canvas.SetActive(false);
-    }
-
-    private void RemoveWater()
-    {
         water.SetActive(false); // O destruir el objeto: Destroy(water);
         isCleaning = false;
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    private void OnSelectEnter(SelectEnterEventArgs args)
     {
-        if (other.CompareTag("CleaningTool") && grabInteractable.isSelected)
+        // Verificar si el paño está dentro del collider del agua cuando se recoge
+        if (isInsideWaterCollider)
         {
             StartCleaning();
+        }
+    }
+
+    private void OnSelectExit(SelectExitEventArgs args)
+    {
+        StopCleaning();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == waterCollider)
+        {
+            isInsideWaterCollider = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("CleaningTool"))
+        if (other == waterCollider)
         {
-            StopCleaning();
+            isInsideWaterCollider = false;
         }
-    }
-    
-    private void OnSelectEnter(SelectEnterEventArgs args)
-    {
-        // Si el paño está dentro del área de agua cuando se recoge, comienza la limpieza
-        if (waterCollider != null && waterCollider.bounds.Contains(transform.position))
-        {
-            StartCleaning();
-        }
-    }
-    
-    public void SetWaterCollider(Collider collider)
-    {
-        waterCollider = collider;
     }
 
     // --- Métodos de Progress Bar ---
