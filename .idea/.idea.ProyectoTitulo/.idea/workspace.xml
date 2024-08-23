@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonTown/Materials/PolygonTown_01_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonTown/Materials/PolygonTown_01_A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/Amarillo.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/Amarillo.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/Blanco.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/Blanco.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Animations/Idle1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Animations/Idle1.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/CleaningTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/CleaningTool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ShoeGrab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ShoeGrab.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +160,7 @@
       <workItem from="1724284281629" duration="4874000" />
       <workItem from="1724298948146" duration="5076000" />
       <workItem from="1724345458757" duration="1141000" />
-      <workItem from="1724346626342" duration="4640000" />
+      <workItem from="1724346626342" duration="6949000" />
     </task>
     <servers />
   </component>
