@@ -10,7 +10,8 @@ public class CleaningTool : MonoBehaviour
     public GameObject canvas;        // Canvas con la barra de progreso
     public Image fillImage;          // Imagen de la barra de progreso
     public TMP_Text progressText;    // Texto del progreso
-    private Animator animator;  
+    public AudioSource audioSource;
+    public AudioClip cleaningSound; 
 
     private XRGrabInteractable grabInteractable;
     private Collider targetCollider;
@@ -26,8 +27,10 @@ public class CleaningTool : MonoBehaviour
         targetCollider = targetObject.GetComponent<Collider>();
         
         sequenceManager = FindObjectOfType<CleaningSequenceManager>();
+        
+        audioSource.clip = cleaningSound;
+        
         outline = GetComponent<Outline>();
-        animator = GetComponent<Animator>();
 
         // Si el objeto no es el primero en la secuencia, desactivarlo
         if (sequenceManager.GetCurrentTool() != this)
@@ -80,10 +83,11 @@ public class CleaningTool : MonoBehaviour
                 outline.enabled = false;
             }
             
-            if (animator != null)
+            if (audioSource != null && cleaningSound != null)
             {
-                animator.SetBool("isCleaning", true);
+                audioSource.Play();
             }
+            
         }
     }
 
@@ -91,11 +95,11 @@ public class CleaningTool : MonoBehaviour
     {
         isCleaning = false;
         canvas.SetActive(false); // Opcional, ocultar el canvas si lo deseas al detener la limpieza
-        
-        if (animator != null)
+        if (audioSource.isPlaying)
         {
-            animator.SetBool("isCleaning", false); // Detener la animación
+            audioSource.Stop();
         }
+        
     }
 
     private void UpdateCleaningProcess()
@@ -108,6 +112,7 @@ public class CleaningTool : MonoBehaviour
         {
             currentCleaningProgress += Time.deltaTime / cleaningTime;
             UpdateProgressValue(currentCleaningProgress);
+            
         }
     }
 
@@ -119,10 +124,12 @@ public class CleaningTool : MonoBehaviour
         isCompleted = true; // Marcar la herramienta como completada
         sequenceManager.ToolCompleted(this);
         
-        if (animator != null)
+        // Detener el sonido al completar la limpieza
+        if (audioSource.isPlaying)
         {
-            animator.SetBool("IsCleaning", false);
+            audioSource.Stop();
         }
+        
     }
 
     public void SetInteractable(bool state)

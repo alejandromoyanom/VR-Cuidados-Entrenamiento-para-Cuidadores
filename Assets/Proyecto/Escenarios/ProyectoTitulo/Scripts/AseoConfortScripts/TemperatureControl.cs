@@ -14,15 +14,10 @@ public class TemperatureControl : MonoBehaviour
 
     void Start()
     {
-        // Asignar las funciones a los eventos de interacción
-        increaseButton.activated.AddListener(IncreaseTemperature);
-        decreaseButton.activated.AddListener(DecreaseTemperature);
-        
-        // Actualizar el texto de la temperatura al inicio
         UpdateTemperatureText();
     }
 
-    private void IncreaseTemperature(ActivateEventArgs args)
+    public void IncreaseTemperature()
     {
         if (temperature < maxTemperature)
         {
@@ -36,7 +31,7 @@ public class TemperatureControl : MonoBehaviour
         }
     }
 
-    private void DecreaseTemperature(ActivateEventArgs args)
+    public void DecreaseTemperature()
     {
         if (temperature > minTemperature)
         {

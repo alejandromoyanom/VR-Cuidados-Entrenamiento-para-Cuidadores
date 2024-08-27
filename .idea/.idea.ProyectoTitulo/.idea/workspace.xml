@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Animations/Idle1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Animations/Idle1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/UpArrow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Materials/UpArrow.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/CleaningTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/CleaningTool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/TemperatureControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/TemperatureControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/../LifeSwapp-AndersCorp/Assets/ProyectoFeria/Escenarios/SillaDeRuedas/Scripts/LavadoDientes/ActivateToothPaste.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../LifeSwapp-AndersCorp/Assets/ProyectoFeria/Escenarios/SillaDeRuedas/Scripts/LavadoDientes/BrushTrigger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../LifeSwapp-AndersCorp/Assets/ProyectoFeria/Escenarios/SillaDeRuedas/Scripts/LavadoDientes/EnjuagarDientes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ButtonFollowVisual.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ShoeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/NPCMovilizacion/TwoPointGrab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/NPCMovilizacion/ikfoot.cs" root0="FORCE_HIGHLIGHTING" />
@@ -160,7 +166,9 @@
       <workItem from="1724284281629" duration="4874000" />
       <workItem from="1724298948146" duration="5076000" />
       <workItem from="1724345458757" duration="1141000" />
-      <workItem from="1724346626342" duration="6949000" />
+      <workItem from="1724346626342" duration="7597000" />
+      <workItem from="1724390784669" duration="905000" />
+      <workItem from="1724709679735" duration="6842000" />
     </task>
     <servers />
   </component>
