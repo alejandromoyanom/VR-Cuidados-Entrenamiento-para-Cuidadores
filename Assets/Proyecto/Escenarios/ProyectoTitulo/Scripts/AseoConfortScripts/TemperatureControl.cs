@@ -8,6 +8,7 @@ public class TemperatureControl : MonoBehaviour
     public float temperature = 18f; // Temperatura inicial
     private float minTemperature = 18f; // Temperatura mínima
     private float maxTemperature = 24f; // Temperatura máxima
+    private AudioSource audioSource;
 
     public XRSimpleInteractable increaseButton; // Botón para aumentar la temperatura
     public XRSimpleInteractable decreaseButton; // Botón para disminuir la temperatura
@@ -15,6 +16,7 @@ public class TemperatureControl : MonoBehaviour
     void Start()
     {
         UpdateTemperatureText();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void IncreaseTemperature()
@@ -22,6 +24,7 @@ public class TemperatureControl : MonoBehaviour
         if (temperature < maxTemperature)
         {
             temperature++;
+            audioSource.Play();
             UpdateTemperatureText();
             if (temperature >= maxTemperature)
             {
@@ -36,6 +39,7 @@ public class TemperatureControl : MonoBehaviour
         if (temperature > minTemperature)
         {
             temperature--;
+            audioSource.Play();
             UpdateTemperatureText();
         }
     }
