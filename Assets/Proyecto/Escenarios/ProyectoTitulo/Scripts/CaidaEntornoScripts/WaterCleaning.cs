@@ -17,12 +17,14 @@ public class WaterCleaning : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     private BoxCollider waterCollider;
     private bool isInsideWaterCollider = false; // Para verificar si el paño está dentro del agua
+    private AudioSource audiosource;
 
     void Start()
     {
         canvas.SetActive(false); // Asegúrate de que el canvas esté desactivado al iniciar el juego
         grabInteractable = GetComponent<XRGrabInteractable>();
         waterCollider = water.GetComponent<BoxCollider>();
+        audiosource = GetComponent<AudioSource>();
 
         // Suscribirse al evento de selección
         grabInteractable.selectEntered.AddListener(OnSelectEnter);
@@ -52,6 +54,7 @@ public class WaterCleaning : MonoBehaviour
         if (fillImage.fillAmount < 1f)
         {
             UpdateProgressValue(Mathf.Clamp01(fillImage.fillAmount + Time.deltaTime / animationDuration));
+            audiosource.Play();
         }
         else
         {
@@ -65,6 +68,7 @@ public class WaterCleaning : MonoBehaviour
         {
             isCleaning = false;
             canvas.SetActive(false);
+            audiosource.Stop();
         }
     }
 
@@ -72,8 +76,9 @@ public class WaterCleaning : MonoBehaviour
     {
         fillImage.fillAmount = 1f;
         canvas.SetActive(false);
-        water.SetActive(false); // O destruir el objeto: Destroy(water);
+        water.SetActive(false);
         isCleaning = false;
+        audiosource.Stop();
     }
 
     private void OnSelectEnter(SelectEnterEventArgs args)

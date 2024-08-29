@@ -26,7 +26,8 @@ public class DialogueManager : MonoBehaviour
     public List<Button> optionButtons; // Lista de botones para las opciones de respuesta
     public TextMeshProUGUI feedbackText; // Texto para mostrar retroalimentación de respuestas incorrectas
     public AudioSource audioSource; // Componente de audio del NPC
-
+    public AudioClip correctAnswerAudioClip;
+    
     private int currentDialogueIndex = 0; // Índice del diálogo actual
     private int currentQuestionIndex = 0; // Índice de la pregunta actual
 
@@ -133,27 +134,40 @@ public class DialogueManager : MonoBehaviour
         // Oculta el panel de preguntas
         questionPanel.SetActive(false);
 
-
         // Verifica si la respuesta es correcta o incorrecta
         Question currentQuestion = dialogues[currentDialogueIndex].questions[currentQuestionIndex];
         if (index == currentQuestion.correctOptionIndex)
         {
             // Respuesta correcta
-            currentQuestionIndex++; // Pasa a la siguiente pregunta
-            if (currentQuestionIndex >= dialogues[currentDialogueIndex].questions.Count)
-            {
-                currentQuestionIndex = 0;
-                currentDialogueIndex++;
-            }
-            ShowDialogue(); // Muestra el siguiente diálogo o pregunta
+            StartCoroutine(PlayCorrectAnswerFeedback());
         }
         else
         {
             // Respuesta incorrecta, muestra retroalimentación
             feedbackText.text = $"Incorrecto. {currentQuestion.explanation}";
             feedbackText.gameObject.SetActive(true);
-            Invoke("HideFeedbackAndShowQuestion", 10f); // Muestra la retroalimentación durante 5 segundos
+            Invoke("HideFeedbackAndShowQuestion", 10f); // Muestra la retroalimentación durante 10 segundos
         }
+    }
+    
+    
+    IEnumerator PlayCorrectAnswerFeedback()
+    {
+        // Reproduce el audio de retroalimentación positiva
+        audioSource.clip = correctAnswerAudioClip;
+        audioSource.Play();
+
+        // Espera a que termine el audio antes de continuar
+        yield return new WaitForSeconds(audioSource.clip.length);
+
+        // Pasa a la siguiente pregunta
+        currentQuestionIndex++; // Pasa a la siguiente pregunta
+        if (currentQuestionIndex >= dialogues[currentDialogueIndex].questions.Count)
+        {
+            currentQuestionIndex = 0;
+            currentDialogueIndex++;
+        }
+        ShowDialogue(); // Muestra el siguiente diálogo o pregunta
     }
 
     void HideFeedbackAndShowQuestion()
