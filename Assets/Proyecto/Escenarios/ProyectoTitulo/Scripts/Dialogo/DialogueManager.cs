@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class DialogueManager : MonoBehaviour
@@ -95,16 +96,19 @@ public class DialogueManager : MonoBehaviour
     {
         isNPCTalking = false; // NPC ha terminado de hablar
         npcText.gameObject.SetActive(false);
+
         if (currentQuestionIndex < dialogues[currentDialogueIndex].questions.Count)
         {
             // Obtiene la pregunta actual
             Question currentQuestion = dialogues[currentDialogueIndex].questions[currentQuestionIndex];
             questionText.text = currentQuestion.questionText; // Muestra el texto de la pregunta
-            
+
+            // Restablece el estado de los botones antes de mostrar las nuevas opciones
             foreach (var button in optionButtons)
             {
-                button.GetComponent<Button>().interactable = true;
-                button.GetComponent<Button>().OnDeselect(null);
+                button.interactable = true;
+                button.gameObject.SetActive(false); // Desactiva temporalmente el botón
+                button.gameObject.SetActive(true);  // Reactiva el botón para asegurarse de que su estado visual se restablezca
             }
 
             // Configura los botones para las opciones de respuesta
@@ -123,9 +127,14 @@ public class DialogueManager : MonoBehaviour
                     optionButtons[i].gameObject.SetActive(false);
                 }
             }
+
+            // Deselecciona cualquier objeto actualmente seleccionado
+            EventSystem.current.SetSelectedGameObject(null);
+
             questionPanel.SetActive(true); // Muestra el panel de preguntas
         }
     }
+
 
     void OnOptionSelected(int index)
     {
@@ -144,11 +153,11 @@ public class DialogueManager : MonoBehaviour
             // Respuesta incorrecta, muestra retroalimentación
             feedbackText.text = $"Incorrecto. {currentQuestion.explanation}";
             feedbackText.gameObject.SetActive(true);
-            StartCoroutine(PlayFeedbackAudio(currentQuestion.negativeFeedbackAudio, false));
+            StartCoroutine(PlayFeedbackAudio(currentQuestion.negativeFeedbackAudio));
         }
     }
 
-    IEnumerator PlayFeedbackAudio(AudioClip feedbackAudioClip, bool isCorrect = true)
+    IEnumerator PlayFeedbackAudio(AudioClip feedbackAudioClip)
     {
         // Reproduce el audio de retroalimentación
         audioSource.clip = feedbackAudioClip;
@@ -157,27 +166,17 @@ public class DialogueManager : MonoBehaviour
         // Espera a que termine el audio antes de continuar
         yield return new WaitForSeconds(audioSource.clip.length);
 
-        if (isCorrect)
-        {
-            // Pasa a la siguiente pregunta si la respuesta fue correcta
-            currentQuestionIndex++;
-            if (currentQuestionIndex >= dialogues[currentDialogueIndex].questions.Count)
-            {
-                currentQuestionIndex = 0;
-                currentDialogueIndex++;
-            }
-            ShowDialogue(); // Muestra el siguiente diálogo o pregunta
-        }
-        else
-        {
-            HideFeedbackAndShowQuestion(); // Vuelve a mostrar la pregunta si la respuesta fue incorrecta
-        }
-    }
-
-    void HideFeedbackAndShowQuestion()
-    {
+        // Oculta el feedback en caso de que estuviera visible
         feedbackText.gameObject.SetActive(false);
-        ShowQuestion();
+
+        // Avanza a la siguiente pregunta
+        currentQuestionIndex++;
+        if (currentQuestionIndex >= dialogues[currentDialogueIndex].questions.Count)
+        {
+            currentQuestionIndex = 0;
+            currentDialogueIndex++;
+        }
+        ShowDialogue(); // Muestra el siguiente diálogo o pregunta
     }
 
     void EndDialogue()
@@ -190,7 +189,6 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("El diálogo ha terminado.");
     }
 }
-
 
 [Serializable]
 public class Question
@@ -210,4 +208,3 @@ public class Dialogue
     public AudioClip audioClip;
     public List<Question> questions;
 }
-
