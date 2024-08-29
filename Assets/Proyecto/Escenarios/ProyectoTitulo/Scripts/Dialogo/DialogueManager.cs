@@ -26,8 +26,7 @@ public class DialogueManager : MonoBehaviour
     public List<Button> optionButtons; // Lista de botones para las opciones de respuesta
     public TextMeshProUGUI feedbackText; // Texto para mostrar retroalimentación de respuestas incorrectas
     public AudioSource audioSource; // Componente de audio del NPC
-    public AudioClip correctAnswerAudioClip;
-    
+
     private int currentDialogueIndex = 0; // Índice del diálogo actual
     private int currentQuestionIndex = 0; // Índice de la pregunta actual
 
@@ -95,7 +94,7 @@ public class DialogueManager : MonoBehaviour
     void ShowQuestion()
     {
         isNPCTalking = false; // NPC ha terminado de hablar
-        npcText.gameObject.SetActive(false); 
+        npcText.gameObject.SetActive(false);
         if (currentQuestionIndex < dialogues[currentDialogueIndex].questions.Count)
         {
             // Obtiene la pregunta actual
@@ -126,7 +125,6 @@ public class DialogueManager : MonoBehaviour
             }
             questionPanel.SetActive(true); // Muestra el panel de preguntas
         }
-        
     }
 
     void OnOptionSelected(int index)
@@ -139,35 +137,41 @@ public class DialogueManager : MonoBehaviour
         if (index == currentQuestion.correctOptionIndex)
         {
             // Respuesta correcta
-            StartCoroutine(PlayCorrectAnswerFeedback());
+            StartCoroutine(PlayFeedbackAudio(currentQuestion.positiveFeedbackAudio));
         }
         else
         {
             // Respuesta incorrecta, muestra retroalimentación
             feedbackText.text = $"Incorrecto. {currentQuestion.explanation}";
             feedbackText.gameObject.SetActive(true);
-            Invoke("HideFeedbackAndShowQuestion", 10f); // Muestra la retroalimentación durante 10 segundos
+            StartCoroutine(PlayFeedbackAudio(currentQuestion.negativeFeedbackAudio, false));
         }
     }
-    
-    
-    IEnumerator PlayCorrectAnswerFeedback()
+
+    IEnumerator PlayFeedbackAudio(AudioClip feedbackAudioClip, bool isCorrect = true)
     {
-        // Reproduce el audio de retroalimentación positiva
-        audioSource.clip = correctAnswerAudioClip;
+        // Reproduce el audio de retroalimentación
+        audioSource.clip = feedbackAudioClip;
         audioSource.Play();
 
         // Espera a que termine el audio antes de continuar
         yield return new WaitForSeconds(audioSource.clip.length);
 
-        // Pasa a la siguiente pregunta
-        currentQuestionIndex++; // Pasa a la siguiente pregunta
-        if (currentQuestionIndex >= dialogues[currentDialogueIndex].questions.Count)
+        if (isCorrect)
         {
-            currentQuestionIndex = 0;
-            currentDialogueIndex++;
+            // Pasa a la siguiente pregunta si la respuesta fue correcta
+            currentQuestionIndex++;
+            if (currentQuestionIndex >= dialogues[currentDialogueIndex].questions.Count)
+            {
+                currentQuestionIndex = 0;
+                currentDialogueIndex++;
+            }
+            ShowDialogue(); // Muestra el siguiente diálogo o pregunta
         }
-        ShowDialogue(); // Muestra el siguiente diálogo o pregunta
+        else
+        {
+            HideFeedbackAndShowQuestion(); // Vuelve a mostrar la pregunta si la respuesta fue incorrecta
+        }
     }
 
     void HideFeedbackAndShowQuestion()
@@ -186,3 +190,24 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("El diálogo ha terminado.");
     }
 }
+
+
+[Serializable]
+public class Question
+{
+    public string questionText;
+    public List<string> options;
+    public int correctOptionIndex;
+    public string explanation; // Para feedback negativo
+    public AudioClip positiveFeedbackAudio; // Audio para retroalimentación positiva
+    public AudioClip negativeFeedbackAudio; // Audio para retroalimentación negativa
+}
+
+[Serializable]
+public class Dialogue
+{
+    public string npcLine;
+    public AudioClip audioClip;
+    public List<Question> questions;
+}
+
