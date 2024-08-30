@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     public List<Button> optionButtons; // Lista de botones para las opciones de respuesta
     public TextMeshProUGUI feedbackText; // Texto para mostrar retroalimentación de respuestas incorrectas
     public AudioSource audioSource; // Componente de audio del NPC
+    public NarrationManager narrationManager; 
 
     private int currentDialogueIndex = 0; // Índice del diálogo actual
     private int currentQuestionIndex = 0; // Índice de la pregunta actual
@@ -186,7 +187,10 @@ public class DialogueManager : MonoBehaviour
         NPCLookAt.position = NPCLookAtInitialPosition;
         isTalking?.Invoke(false);
         playerInteract.DeactivateCanvas();
-        Debug.Log("El diálogo ha terminado.");
+        if (narrationManager != null)
+        {
+            narrationManager.ContinueWithCurrentNarration(true); // Reproduce todas en secuencia desde la actual
+        }
     }
 }
 
