@@ -36,7 +36,7 @@ public class NarrationManager : MonoBehaviour
         narrationAudioSource.playOnAwake = false; // Evitar que se reproduzca al iniciar
     }
 
-    public void PlayNarration(int index, bool playAll = false)
+    public void PlayNarration(int index, bool disableMovement = false, bool playAll = false)
     {
         playAllInSequence = playAll; // Configura si se deben reproducir todas las narraciones en secuencia
 
@@ -44,7 +44,7 @@ public class NarrationManager : MonoBehaviour
         if (index >= 0 && index < narrations.Count)
         {
             currentNarrationIndex = index;
-            PlayCurrentNarration();
+            PlayCurrentNarration(disableMovement);
         }
         else
         {
@@ -52,12 +52,12 @@ public class NarrationManager : MonoBehaviour
         }
     }
 
-    public void PlayNextNarration()
+    public void PlayNextNarration(bool disableMovement = false)
     {
         if (currentNarrationIndex < narrations.Count - 1)
         {
             currentNarrationIndex++;
-            PlayCurrentNarration();
+            PlayCurrentNarration(disableMovement);
         }
         else
         {
@@ -71,16 +71,16 @@ public class NarrationManager : MonoBehaviour
         PlayNextNarration();
     }
 
-    private void PlayCurrentNarration()
+    private void PlayCurrentNarration(bool disableMovement)
     {
         if (backgroundAudioSource != null)
         {
             backgroundAudioSource.Pause(); // Pausar el audio de fondo
         }
         
-        if (moveProvider != null)
+        if (moveProvider != null && !disableMovement)
         {
-            moveProvider.enabled = false; // Desactivar el movimiento
+            moveProvider.enabled = false; // Desactivar el movimiento si está configurado
         }
 
         narrationAudioSource.clip = narrations[currentNarrationIndex];

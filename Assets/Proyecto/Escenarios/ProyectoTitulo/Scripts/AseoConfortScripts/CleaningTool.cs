@@ -11,7 +11,8 @@ public class CleaningTool : MonoBehaviour
     public Image fillImage;          // Imagen de la barra de progreso
     public TMP_Text progressText;    // Texto del progreso
     public AudioSource audioSource;
-    public AudioClip cleaningSound; 
+    public AudioClip cleaningSound;
+    public NarrationManager narrationManager;
 
     private XRGrabInteractable grabInteractable;
     private Collider targetCollider;
@@ -124,10 +125,19 @@ public class CleaningTool : MonoBehaviour
         isCompleted = true; // Marcar la herramienta como completada
         sequenceManager.ToolCompleted(this);
         
-        // Detener el sonido al completar la limpieza
+        // Detener el sonido al completar la limpiezas
         if (audioSource.isPlaying)
         {
             audioSource.Stop();
+        }
+        
+        if (gameObject.name == "Toalla")
+        {
+            narrationManager.ContinueWithCurrentNarration(true); // Reproducir todas las narraciones en secuencia
+        }
+        else
+        {
+            narrationManager.PlayNextNarration();
         }
         
     }

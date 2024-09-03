@@ -7,11 +7,12 @@ public class TemperatureControl : MonoBehaviour
     public TextMeshProUGUI temperatureText; // Referencia al texto que muestra la temperatura
     public float temperature = 18f; // Temperatura inicial
     private float minTemperature = 18f; // Temperatura mínima
-    private float maxTemperature = 24f; // Temperatura máxima
+    private float maxTemperature = 23f; // Temperatura máxima
     private AudioSource audioSource;
 
     public XRSimpleInteractable increaseButton; // Botón para aumentar la temperatura
     public XRSimpleInteractable decreaseButton; // Botón para disminuir la temperatura
+    public NarrationManager NarrationManager;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class TemperatureControl : MonoBehaviour
             {
                 increaseButton.enabled = false;
                 decreaseButton.enabled = false;
+                NarrationManager.PlayNextNarration();
             }
         }
     }
