@@ -8,9 +8,14 @@ public class PlayIntroVideo : MonoBehaviour
     public Canvas videoCanvas;
     public XRRayInteractor leftRayInteractor;
     public XRRayInteractor rightRayInteractor;
+    
+    private const string TutorialCompletedKey = "TutorialCompleted";
 
     void Start()
     {
+        PlayerPrefs.SetInt(TutorialCompletedKey, 0);
+        PlayerPrefs.Save();
+        
         // Desactivar el movimiento y los rayos al iniciar el video
         leftRayInteractor.enabled = false;
         rightRayInteractor.enabled = false;

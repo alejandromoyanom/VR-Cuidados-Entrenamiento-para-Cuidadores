@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject questionPanel; // Panel de UI que contiene las preguntas y opciones
     public TextMeshProUGUI questionText; // Componente de texto para mostrar la pregunta
     public List<Button> optionButtons; // Lista de botones para las opciones de respuesta
-    public TextMeshProUGUI feedbackText; // Texto para mostrar retroalimentación de respuestas incorrectas
+    public TextMeshProUGUI feedbackText;
     public AudioSource audioSource; // Componente de audio del NPC
     public NarrationManager narrationManager; 
 
@@ -147,18 +147,20 @@ public class DialogueManager : MonoBehaviour
         if (index == currentQuestion.correctOptionIndex)
         {
             // Respuesta correcta
-            StartCoroutine(PlayFeedbackAudio(currentQuestion.positiveFeedbackAudio));
+            feedbackText.text = $"{currentQuestion.explanationPositive}";
+            feedbackText.gameObject.SetActive(true);
+            StartCoroutine(PlayFeedbackAudio(currentQuestion.positiveFeedbackAudio, true));
         }
         else
         {
             // Respuesta incorrecta, muestra retroalimentación
-            feedbackText.text = $"Incorrecto. {currentQuestion.explanation}";
+            feedbackText.text = $"{currentQuestion.explanationNegative}";
             feedbackText.gameObject.SetActive(true);
-            StartCoroutine(PlayFeedbackAudio(currentQuestion.negativeFeedbackAudio));
+            StartCoroutine(PlayFeedbackAudio(currentQuestion.negativeFeedbackAudio, false));
         }
     }
 
-    IEnumerator PlayFeedbackAudio(AudioClip feedbackAudioClip)
+    IEnumerator PlayFeedbackAudio(AudioClip feedbackAudioClip, bool isPositive)
     {
         // Reproduce el audio de retroalimentación
         audioSource.clip = feedbackAudioClip;
@@ -167,7 +169,6 @@ public class DialogueManager : MonoBehaviour
         // Espera a que termine el audio antes de continuar
         yield return new WaitForSeconds(audioSource.clip.length);
 
-        // Oculta el feedback en caso de que estuviera visible
         feedbackText.gameObject.SetActive(false);
 
         // Avanza a la siguiente pregunta
@@ -200,7 +201,8 @@ public class Question
     public string questionText;
     public List<string> options;
     public int correctOptionIndex;
-    public string explanation; // Para feedback negativo
+    public string explanationNegative; // Para feedback negativo
+    public string explanationPositive; // Para feedback positivo
     public AudioClip positiveFeedbackAudio; // Audio para retroalimentación positiva
     public AudioClip negativeFeedbackAudio; // Audio para retroalimentación negativa
 }

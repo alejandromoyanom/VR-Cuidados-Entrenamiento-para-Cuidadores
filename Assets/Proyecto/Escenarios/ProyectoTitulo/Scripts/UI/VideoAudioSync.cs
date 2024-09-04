@@ -9,7 +9,6 @@ public class VideoAudioSync : MonoBehaviour
 {
     public VideoPlayer videoPlayer; 
     public AudioSource audioSource;  
-    public DynamicMoveProvider moveProvider; 
     public Canvas videoCanvas;
     public NarrationManager narrationManager;
     public GameObject faderScreen;
@@ -21,8 +20,6 @@ public class VideoAudioSync : MonoBehaviour
         // Verificar si el tutorial ya se ha completado
         if (PlayerPrefs.GetInt(TutorialCompletedKey, 0) == 1)
         {
-            // Si el tutorial ya fue completado, no reproducir el video ni el audio
-            moveProvider.enabled = true;
             
             faderScreen.SetActive(true);
 
@@ -30,9 +27,7 @@ public class VideoAudioSync : MonoBehaviour
             narrationManager.PlayNextNarration();
             return;
         }
-
-        // Desactivar el movimiento al inicio
-        moveProvider.enabled = false;
+        
 
         // Asegúrate de que el video no comience automáticamente
         videoPlayer.playOnAwake = false;
@@ -65,9 +60,6 @@ public class VideoAudioSync : MonoBehaviour
         PlayerPrefs.SetInt(TutorialCompletedKey, 1);
         PlayerPrefs.Save();
 
-        // Reactivar el movimiento cuando el video termine
-        moveProvider.enabled = true;
-
         // Iniciar la narración con un retraso
         StartCoroutine(PlayNarrationWithDelay());
     }
@@ -75,7 +67,7 @@ public class VideoAudioSync : MonoBehaviour
     IEnumerator PlayNarrationWithDelay()
     {
         // Esperar 1 segundo
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // Iniciar la primera narración
         narrationManager.PlayNextNarration();

@@ -33,12 +33,12 @@ public class UISocketCounter : MonoBehaviour
         
         if (currentCount == 1)
         {
-            narrationManager.PlayNextNarration();
+            narrationManager.PlayNextNarration(true);
         }
         
         if (currentCount >= totalObjects)
         {
-            narrationManager.PlayNextNarration();
+            narrationManager.PlayNextNarration(true);
             StartCoroutine(HideCanvasAfterDelay());
         }
     }

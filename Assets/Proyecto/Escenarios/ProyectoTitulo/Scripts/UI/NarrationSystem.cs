@@ -62,7 +62,7 @@ public class NarrationManager : MonoBehaviour
         }
         else
         {
-            SceneTransitionManager.singleton.GoToSceneAsync(0);
+            SceneTransitionManager.singleton.GoToSceneAsync(5);
         }
     }
 
