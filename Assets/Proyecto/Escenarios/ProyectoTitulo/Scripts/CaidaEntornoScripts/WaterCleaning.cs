@@ -12,8 +12,10 @@ public class WaterCleaning : MonoBehaviour
     [SerializeField] private float animationDuration = 5f; // Duración de la animación
 
     public GameObject water; // Referencia al objeto de agua
+    public NarrationManager narrationManager;
 
     private bool isCleaning = false;
+    private bool narrationPlayed = false; // Para asegurar que la narración se reproduce solo una vez
     private XRGrabInteractable grabInteractable;
     private BoxCollider waterCollider;
     private bool isInsideWaterCollider = false; // Para verificar si el paño está dentro del agua
@@ -79,6 +81,7 @@ public class WaterCleaning : MonoBehaviour
         water.SetActive(false);
         isCleaning = false;
         audiosource.Stop();
+        narrationManager.ContinueWithCurrentNarration(true);
     }
 
     private void OnSelectEnter(SelectEnterEventArgs args)
@@ -87,6 +90,13 @@ public class WaterCleaning : MonoBehaviour
         if (isInsideWaterCollider)
         {
             StartCleaning();
+        }
+
+        // Reproducir la narración solo una vez
+        if (!narrationPlayed)
+        {
+            narrationManager.PlayNextNarration();
+            narrationPlayed = true;
         }
     }
 

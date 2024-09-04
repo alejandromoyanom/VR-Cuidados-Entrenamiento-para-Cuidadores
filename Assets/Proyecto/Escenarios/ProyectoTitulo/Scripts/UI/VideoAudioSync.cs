@@ -3,6 +3,7 @@ using UnityEngine.Video;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class VideoAudioSync : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class VideoAudioSync : MonoBehaviour
     public DynamicMoveProvider moveProvider; 
     public Canvas videoCanvas;
     public NarrationManager narrationManager;
+    public GameObject faderScreen;
 
     private const string TutorialCompletedKey = "TutorialCompleted";
 
@@ -21,6 +23,8 @@ public class VideoAudioSync : MonoBehaviour
         {
             // Si el tutorial ya fue completado, no reproducir el video ni el audio
             moveProvider.enabled = true;
+            
+            faderScreen.SetActive(true);
 
             // Reproducir la siguiente narración al iniciar la escena
             narrationManager.PlayNextNarration();
@@ -41,7 +45,6 @@ public class VideoAudioSync : MonoBehaviour
         // Subscribir al evento cuando el video termina
         videoPlayer.loopPointReached += OnVideoEnd;
     }
-
 
     void SyncAndPlay(VideoPlayer vp)
     {
@@ -76,5 +79,14 @@ public class VideoAudioSync : MonoBehaviour
 
         // Iniciar la primera narración
         narrationManager.PlayNextNarration();
+
+        // Verificar si estamos en la escena "CaidaEntorno"
+        if (SceneManager.GetActiveScene().name == "CaidaEntorno")
+        {
+            // Esperar hasta que la primera narración termine
+            yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration());
+            
+            narrationManager.PlayNextNarration();
+        }
     }
 }

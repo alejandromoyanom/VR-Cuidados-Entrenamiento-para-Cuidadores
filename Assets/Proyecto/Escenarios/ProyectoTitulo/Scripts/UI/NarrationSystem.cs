@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
@@ -61,7 +62,7 @@ public class NarrationManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No hay mas narraciones");
+            SceneTransitionManager.singleton.GoToSceneAsync(0);
         }
     }
 
@@ -109,5 +110,46 @@ public class NarrationManager : MonoBehaviour
             moveProvider.enabled = true; // Reactivar el movimiento
         }
     }
+    
+    public float GetCurrentNarrationDuration()
+    {
+        if (narrationAudioSource.clip != null)
+        {
+            return narrationAudioSource.clip.length;
+        }
+        else
+        {
+            Debug.LogWarning("No hay narración actual o el clip es nulo.");
+            return 0f;
+        }
+    }
+    
+    
+    public void PlayThreeNarrations()
+    {
+        StartCoroutine(PlayThreeNarrationsCoroutine());
+    }
+
+    private IEnumerator PlayThreeNarrationsCoroutine()
+    {
+        // Reproducir la primera narración
+        PlayNextNarration(true);
+
+        // Esperar hasta que la primera narración termine
+        yield return new WaitForSeconds(GetCurrentNarrationDuration());
+
+        // Reproducir la segunda narración
+        PlayNextNarration(true);
+
+        // Esperar hasta que la segunda narración termine
+        yield return new WaitForSeconds(GetCurrentNarrationDuration());
+
+        // Reproducir la tercera narración
+        PlayNextNarration(true);
+
+        // Esperar hasta que la tercera narración termine (opcional si necesitas hacer algo después)
+        yield return new WaitForSeconds(GetCurrentNarrationDuration());
+    }
+
 }
 

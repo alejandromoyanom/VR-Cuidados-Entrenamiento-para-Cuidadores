@@ -14,6 +14,7 @@ public class TwoPointGrab : MonoBehaviour
     public Transform[] snapPoints;
     
     public Transform rightAttachPoint;
+    public NarrationManager narrationManager;
     
     private float slowMoveSpeed = 0.3f; // Velocidad reducida al levantar el objeto
     private float slowTurnSpeed = 20f; // Velocidad de giro reducida al levantar el objeto
@@ -28,6 +29,7 @@ public class TwoPointGrab : MonoBehaviour
     private bool adjustedAttachPoint = false;
     private bool isSeated = false; // Indica si el personaje está en la silla
     private bool canAnimate = true;
+    private bool narracion = false;
 
     private ContinuousMoveProviderBase moveProvider;
     private ContinuousTurnProviderBase turnProvider;
@@ -149,6 +151,12 @@ public class TwoPointGrab : MonoBehaviour
         { 
             // Permitir el movimiento cuando ambas manos estén sujetando
             rb.constraints = RigidbodyConstraints.None;
+
+            if (narracion == false)
+            {
+                narrationManager.PlayThreeNarrations();
+                narracion = true;
+            }
             
             if (canAnimate) // Solo activar si las animaciones están permitidas
             {
@@ -236,6 +244,7 @@ public class TwoPointGrab : MonoBehaviour
                 SetCollidersActive(sittingColliders, true);
                 SetCollidersActive(standingColliders, false);
             }
+            narrationManager.ContinueWithCurrentNarration(true);
         }
     }
 

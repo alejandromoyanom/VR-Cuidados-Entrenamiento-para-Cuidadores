@@ -10,6 +10,7 @@ public class UISocketCounter : MonoBehaviour
     private int currentCount = 0; // Conteo actual
     public TextMeshProUGUI counterText; // El texto de la UI
     public GameObject canvas; // Referencia al Canvas
+    public NarrationManager narrationManager;
     private float delayBeforeHide = 2f; // Tiempo de espera antes de desactivar el Canvas
 
     void Start()
@@ -30,8 +31,14 @@ public class UISocketCounter : MonoBehaviour
         currentCount++;
         UpdateCounterText();
         
+        if (currentCount == 1)
+        {
+            narrationManager.PlayNextNarration();
+        }
+        
         if (currentCount >= totalObjects)
         {
+            narrationManager.PlayNextNarration();
             StartCoroutine(HideCanvasAfterDelay());
         }
     }
