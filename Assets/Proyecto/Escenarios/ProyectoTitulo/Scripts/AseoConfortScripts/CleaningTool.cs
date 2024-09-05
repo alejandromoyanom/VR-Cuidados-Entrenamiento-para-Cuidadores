@@ -133,7 +133,7 @@ public class CleaningTool : MonoBehaviour
         
         if (gameObject.name == "Toalla")
         {
-            narrationManager.ContinueWithCurrentNarration(true); // Reproducir todas las narraciones en secuencia
+            narrationManager.PlayNarrationSequenceFromCurrent(); // Reproducir todas las narraciones en secuencia
         }
         else
         {

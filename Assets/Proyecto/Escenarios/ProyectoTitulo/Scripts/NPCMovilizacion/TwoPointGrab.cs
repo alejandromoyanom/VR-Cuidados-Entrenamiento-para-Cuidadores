@@ -244,7 +244,7 @@ public class TwoPointGrab : MonoBehaviour
                 SetCollidersActive(sittingColliders, true);
                 SetCollidersActive(standingColliders, false);
             }
-            narrationManager.ContinueWithCurrentNarration(true);
+            narrationManager.PlayNarrationSequenceFromCurrent();
         }
     }
 

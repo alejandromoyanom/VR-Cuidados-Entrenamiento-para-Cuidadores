@@ -11,7 +11,6 @@ public class NarrationManager : MonoBehaviour
 
     private AudioSource narrationAudioSource;
     public AudioSource backgroundAudioSource; // AudioSource para el audio de fondo
-    private bool playAllInSequence = false; // Controlar si se deben reproducir todas las narraciones
     
     public GameObject xrOrigin; // Referencia al XR Origin
     private DynamicMoveProvider moveProvider;
@@ -37,10 +36,8 @@ public class NarrationManager : MonoBehaviour
         narrationAudioSource.playOnAwake = false; // Evitar que se reproduzca al iniciar
     }
 
-    public void PlayNarration(int index, bool disableMovement = false, bool playAll = false)
+    public void PlayNarration(int index, bool disableMovement = false)
     {
-        playAllInSequence = playAll; // Configura si se deben reproducir todas las narraciones en secuencia
-
         // Verificar si el índice es válido y actualizar el índice actual
         if (index >= 0 && index < narrations.Count)
         {
@@ -49,7 +46,7 @@ public class NarrationManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Indice fuera de rango");
+            Debug.LogWarning("Índice fuera de rango");
         }
     }
 
@@ -62,14 +59,22 @@ public class NarrationManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("No hay más narraciones.");
             SceneTransitionManager.singleton.GoToSceneAsync(5);
         }
     }
 
-    public void ContinueWithCurrentNarration(bool playAll = false)
+    public void PlayNarrationSequenceFromCurrent()
     {
-        playAllInSequence = playAll; // Configura si se deben reproducir todas las narraciones en secuencia
-        PlayNextNarration();
+        if (currentNarrationIndex < narrations.Count)
+        {
+            currentNarrationIndex++;
+            StartCoroutine(PlayNarrationSequenceCoroutine());
+        }
+        else
+        {
+            Debug.LogWarning("No hay más narraciones para continuar.");
+        }
     }
 
     private void PlayCurrentNarration(bool disableMovement)
@@ -78,6 +83,8 @@ public class NarrationManager : MonoBehaviour
         {
             backgroundAudioSource.Pause(); // Pausar el audio de fondo
         }
+
+        xrOrigin.GetComponent<FootstepSound>().enabled = false;
         
         if (moveProvider != null && !disableMovement)
         {
@@ -87,16 +94,9 @@ public class NarrationManager : MonoBehaviour
         narrationAudioSource.clip = narrations[currentNarrationIndex];
         narrationAudioSource.Play();
 
-        // Invocar la siguiente narración solo si playAllInSequence es verdadero
-        if (playAllInSequence)
-        {
-            Invoke("PlayNextNarration", narrationAudioSource.clip.length);
-        }
-        else
-        {
-            Invoke("ResumeMovementAndBackgroundAudio", narrationAudioSource.clip.length);
-        }
+        Invoke("ResumeMovementAndBackgroundAudio", narrationAudioSource.clip.length);
     }
+
 
     private void ResumeMovementAndBackgroundAudio()
     {
@@ -105,12 +105,42 @@ public class NarrationManager : MonoBehaviour
             backgroundAudioSource.UnPause(); // Reanudar el audio de fondo
         }
         
+        xrOrigin.GetComponent<FootstepSound>().enabled = true;
+        
         if (moveProvider != null)
         {
             moveProvider.enabled = true; // Reactivar el movimiento
         }
     }
     
+    private IEnumerator PlayNarrationSequenceCoroutine()
+    {
+        while (currentNarrationIndex < narrations.Count)
+        {
+            // Reproducir la narración actual
+            PlayCurrentNarration(false); // Desactiva el movimiento mientras se reproduce
+
+            // Esperar hasta que termine la narración actual
+            yield return new WaitForSeconds(narrationAudioSource.clip.length + 1f);
+
+            // Avanzar al siguiente índice
+            currentNarrationIndex++;
+        }
+
+        // Al terminar la secuencia, reactivar el movimiento
+        ResumeMovementAndBackgroundAudio();
+        
+        // Verifica que el SceneTransitionManager exista antes de usarlo
+        if (SceneTransitionManager.singleton != null)
+        {
+            SceneTransitionManager.singleton.GoToSceneAsync(5); // Cambiar de escena al terminar
+        }
+        else
+        {
+            Debug.LogError("SceneTransitionManager no se encuentra o es nulo.");
+        }
+    }
+
     public float GetCurrentNarrationDuration()
     {
         if (narrationAudioSource.clip != null)

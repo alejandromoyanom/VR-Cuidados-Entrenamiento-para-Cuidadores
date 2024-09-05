@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private Vector3 NPCLookAtInitialPosition;
     private Animator animator;
     private bool isNPCTalking = false;
+    private bool canInteract = true; 
 
     public List<Dialogue> dialogues; // Lista de diálogos
     public TextMeshProUGUI npcText; // Componente de texto para mostrar el diálogo del NPC
@@ -50,7 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     public void Interact()
     {
-        if (!isNPCTalking)
+        if (canInteract && !isNPCTalking)
         {
             StartDialogue();
         }
@@ -190,8 +191,9 @@ public class DialogueManager : MonoBehaviour
         playerInteract.DeactivateCanvas();
         if (narrationManager != null)
         {
-            narrationManager.ContinueWithCurrentNarration(true); // Reproduce todas en secuencia desde la actual
+            narrationManager.PlayNarrationSequenceFromCurrent(); // Iniciar la secuencia desde la narración actual
         }
+        canInteract = false;
     }
 }
 

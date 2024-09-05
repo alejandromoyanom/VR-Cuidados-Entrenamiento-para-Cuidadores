@@ -81,7 +81,7 @@ public class WaterCleaning : MonoBehaviour
         water.SetActive(false);
         isCleaning = false;
         audiosource.Stop();
-        narrationManager.ContinueWithCurrentNarration(true);
+        narrationManager.PlayNarrationSequenceFromCurrent();
     }
 
     private void OnSelectEnter(SelectEnterEventArgs args)
