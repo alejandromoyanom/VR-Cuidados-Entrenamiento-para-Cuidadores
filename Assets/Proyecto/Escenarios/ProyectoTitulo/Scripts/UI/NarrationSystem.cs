@@ -76,42 +76,6 @@ public class NarrationManager : MonoBehaviour
             Debug.LogWarning("No hay más narraciones para continuar.");
         }
     }
-
-    private void PlayCurrentNarration(bool disableMovement)
-    {
-        if (backgroundAudioSource != null)
-        {
-            backgroundAudioSource.Pause(); // Pausar el audio de fondo
-        }
-
-        xrOrigin.GetComponent<FootstepSound>().enabled = false;
-        
-        if (moveProvider != null && !disableMovement)
-        {
-            moveProvider.enabled = false; // Desactivar el movimiento si está configurado
-        }
-
-        narrationAudioSource.clip = narrations[currentNarrationIndex];
-        narrationAudioSource.Play();
-
-        Invoke("ResumeMovementAndBackgroundAudio", narrationAudioSource.clip.length);
-    }
-
-
-    private void ResumeMovementAndBackgroundAudio()
-    {
-        if (backgroundAudioSource != null)
-        {
-            backgroundAudioSource.UnPause(); // Reanudar el audio de fondo
-        }
-        
-        xrOrigin.GetComponent<FootstepSound>().enabled = true;
-        
-        if (moveProvider != null)
-        {
-            moveProvider.enabled = true; // Reactivar el movimiento
-        }
-    }
     
     private IEnumerator PlayNarrationSequenceCoroutine()
     {
@@ -140,6 +104,53 @@ public class NarrationManager : MonoBehaviour
             Debug.LogError("SceneTransitionManager no se encuentra o es nulo.");
         }
     }
+
+    private void PlayCurrentNarration(bool disableMovement)
+    {
+        if (backgroundAudioSource != null)
+        {
+            backgroundAudioSource.Pause(); // Pausar el audio de fondo
+        }
+
+        xrOrigin.GetComponent<FootstepSound>().enabled = false;
+        
+        if (moveProvider != null && !disableMovement)
+        {
+            StartCoroutine(DisableMovementWithDelay(2f));
+        }
+
+        narrationAudioSource.clip = narrations[currentNarrationIndex];
+        narrationAudioSource.Play();
+
+        Invoke("ResumeMovementAndBackgroundAudio", narrationAudioSource.clip.length);
+    }
+    
+    private IEnumerator DisableMovementWithDelay(float delay)
+    {
+        // Esperar el tiempo especificado (2 segundos en este caso)
+        yield return new WaitForSeconds(delay);
+
+        // Desactivar el movimiento
+        moveProvider.enabled = false;
+    }
+
+
+    private void ResumeMovementAndBackgroundAudio()
+    {
+        if (backgroundAudioSource != null)
+        {
+            backgroundAudioSource.UnPause(); // Reanudar el audio de fondo
+        }
+        
+        xrOrigin.GetComponent<FootstepSound>().enabled = true;
+        
+        if (moveProvider != null)
+        {
+            moveProvider.enabled = true; // Reactivar el movimiento
+        }
+    }
+    
+
 
     public float GetCurrentNarrationDuration()
     {
