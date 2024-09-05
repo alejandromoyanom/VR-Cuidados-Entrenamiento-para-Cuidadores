@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameStartMenu2 : MonoBehaviour
 {
@@ -36,7 +37,18 @@ public class GameStartMenu2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnableMainMenu();
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        
+        if (currentSceneName == "SelectionScene") 
+        {
+            // Si estamos en la nueva escena, saltar el menú principal y mostrar la selección
+            ShowSeleccion();
+        }
+        else
+        {
+            // Si es la escena principal, mostrar el menú principal
+            EnableMainMenu();
+        }
 
         // Hook events
         continuarButton.onClick.AddListener(ShowSeleccion);

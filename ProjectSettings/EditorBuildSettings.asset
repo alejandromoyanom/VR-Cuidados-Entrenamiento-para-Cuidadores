@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity
     guid: 5a57ef5c29c48e944b3f5f758b3974f4
   - enabled: 1
-    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene2.unity
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/SelectionScene.unity
     guid: 2da8aeda1017e4142bd50562e564666e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2779588573464a543a0dbb71383168a9,
