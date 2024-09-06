@@ -31,11 +31,6 @@ public class UISocketCounter : MonoBehaviour
         currentCount++;
         UpdateCounterText();
         
-        if (currentCount == 1)
-        {
-            narrationManager.PlayNextNarration(true);
-        }
-        
         if (currentCount >= totalObjects)
         {
             narrationManager.PlayNextNarration(true);

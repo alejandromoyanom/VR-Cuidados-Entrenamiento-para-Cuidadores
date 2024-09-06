@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
-
 public class NarrationManager : MonoBehaviour
 {
     public List<AudioClip> narrations; // Lista de clips de narración
@@ -15,12 +14,15 @@ public class NarrationManager : MonoBehaviour
     public GameObject xrOrigin; // Referencia al XR Origin
     private DynamicMoveProvider moveProvider;
 
+    private bool narrationInProgress = false; // Controlar si una narración está en progreso
+    private bool narrationSequencePending = false; // Controlar si hay una secuencia pendiente
+
     void Start()
     {
         narrationAudioSource = GetComponent<AudioSource>();
         if (narrationAudioSource == null)
         {
-            Debug.LogError("No se encontro AudioSource");
+            Debug.LogError("No se encontró AudioSource");
         }
         
         if (xrOrigin != null)
@@ -28,7 +30,7 @@ public class NarrationManager : MonoBehaviour
             moveProvider = xrOrigin.GetComponent<DynamicMoveProvider>();
             if (moveProvider == null)
             {
-                Debug.LogError("No se encontro MoveProvider");
+                Debug.LogError("No se encontró MoveProvider");
             }
         }
         
@@ -36,22 +38,11 @@ public class NarrationManager : MonoBehaviour
         narrationAudioSource.playOnAwake = false; // Evitar que se reproduzca al iniciar
     }
 
-    public void PlayNarration(int index, bool disableMovement = false)
-    {
-        // Verificar si el índice es válido y actualizar el índice actual
-        if (index >= 0 && index < narrations.Count)
-        {
-            currentNarrationIndex = index;
-            PlayCurrentNarration(disableMovement);
-        }
-        else
-        {
-            Debug.LogWarning("Índice fuera de rango");
-        }
-    }
-
     public void PlayNextNarration(bool disableMovement = false)
     {
+        // No permitir que se reproduzcan nuevas narraciones si una ya está en progreso
+        if (narrationInProgress) return;
+
         if (currentNarrationIndex < narrations.Count - 1)
         {
             currentNarrationIndex++;
@@ -66,19 +57,21 @@ public class NarrationManager : MonoBehaviour
 
     public void PlayNarrationSequenceFromCurrent()
     {
-        if (currentNarrationIndex < narrations.Count)
+        if (narrationInProgress)
         {
-            currentNarrationIndex++;
-            StartCoroutine(PlayNarrationSequenceCoroutine());
+            narrationSequencePending = true; // Marcar como pendiente si ya hay una en progreso
+            return;
         }
-        else
-        {
-            Debug.LogWarning("No hay más narraciones para continuar.");
-        }
+
+        currentNarrationIndex++;
+        StartCoroutine(PlayNarrationSequenceCoroutine());
     }
     
     private IEnumerator PlayNarrationSequenceCoroutine()
     {
+        narrationInProgress = true;  // Marcar la narración como en progreso
+        narrationSequencePending = false; // Reiniciar el estado de la secuencia pendiente
+
         while (currentNarrationIndex < narrations.Count)
         {
             // Reproducir la narración actual
@@ -93,7 +86,9 @@ public class NarrationManager : MonoBehaviour
 
         // Al terminar la secuencia, reactivar el movimiento
         ResumeMovementAndBackgroundAudio();
-        
+
+        narrationInProgress = false;  // Marcar que la narración ha terminado
+
         // Verifica que el SceneTransitionManager exista antes de usarlo
         if (SceneTransitionManager.singleton != null)
         {
@@ -103,10 +98,14 @@ public class NarrationManager : MonoBehaviour
         {
             Debug.LogError("SceneTransitionManager no se encuentra o es nulo.");
         }
+
+        
     }
 
     private void PlayCurrentNarration(bool disableMovement)
     {
+        narrationInProgress = true;  // Marcar el inicio de la narración
+
         if (backgroundAudioSource != null)
         {
             backgroundAudioSource.Pause(); // Pausar el audio de fondo
@@ -116,24 +115,27 @@ public class NarrationManager : MonoBehaviour
         
         if (moveProvider != null && !disableMovement)
         {
-            StartCoroutine(DisableMovementWithDelay(2f));
+            StartCoroutine(DisableMovementWithDelay(0.5f));
         }
 
         narrationAudioSource.clip = narrations[currentNarrationIndex];
         narrationAudioSource.Play();
 
-        Invoke("ResumeMovementAndBackgroundAudio", narrationAudioSource.clip.length);
+        // Manejar el final de la narración
+        Invoke(nameof(ResumeMovementAndBackgroundAudio), narrationAudioSource.clip.length);
+        Invoke(nameof(FinishNarration), narrationAudioSource.clip.length + 1f);
+    }
+
+    private void FinishNarration()
+    {
+        narrationInProgress = false;  // Marcar el final de la narración
     }
     
     private IEnumerator DisableMovementWithDelay(float delay)
     {
-        // Esperar el tiempo especificado (2 segundos en este caso)
         yield return new WaitForSeconds(delay);
-
-        // Desactivar el movimiento
-        moveProvider.enabled = false;
+        moveProvider.enabled = false; // Desactivar el movimiento
     }
-
 
     private void ResumeMovementAndBackgroundAudio()
     {
@@ -141,7 +143,7 @@ public class NarrationManager : MonoBehaviour
         {
             backgroundAudioSource.UnPause(); // Reanudar el audio de fondo
         }
-        
+
         xrOrigin.GetComponent<FootstepSound>().enabled = true;
         
         if (moveProvider != null)
@@ -149,8 +151,6 @@ public class NarrationManager : MonoBehaviour
             moveProvider.enabled = true; // Reactivar el movimiento
         }
     }
-    
-
 
     public float GetCurrentNarrationDuration()
     {
@@ -164,33 +164,35 @@ public class NarrationManager : MonoBehaviour
             return 0f;
         }
     }
-    
-    
+
     public void PlayThreeNarrations()
     {
-        StartCoroutine(PlayThreeNarrationsCoroutine());
+        if (!narrationInProgress)  // Solo permitir iniciar si no hay narraciones en progreso
+        {
+            StartCoroutine(PlayThreeNarrationsCoroutine());
+        }
     }
 
     private IEnumerator PlayThreeNarrationsCoroutine()
     {
         // Reproducir la primera narración
-        PlayNextNarration(true);
-
-        // Esperar hasta que la primera narración termine
-        yield return new WaitForSeconds(GetCurrentNarrationDuration());
+        PlayNextNarration();
+        yield return new WaitForSeconds(narrationAudioSource.clip.length + 1f);
 
         // Reproducir la segunda narración
-        PlayNextNarration(true);
-
-        // Esperar hasta que la segunda narración termine
-        yield return new WaitForSeconds(GetCurrentNarrationDuration());
+        PlayNextNarration(true); 
+        yield return new WaitForSeconds(narrationAudioSource.clip.length + 1f);
 
         // Reproducir la tercera narración
         PlayNextNarration(true);
+        yield return new WaitForSeconds(narrationAudioSource.clip.length + 1f);
 
-        // Esperar hasta que la tercera narración termine (opcional si necesitas hacer algo después)
-        yield return new WaitForSeconds(GetCurrentNarrationDuration());
+        narrationInProgress = false;  // Marcar que se terminó la narración en progreso
+
+        // Verificar si hay una secuencia pendiente
+        if (narrationSequencePending)
+        {
+            PlayNarrationSequenceFromCurrent();  // Ejecutar la secuencia pendiente si existe
+        }
     }
-
 }
-

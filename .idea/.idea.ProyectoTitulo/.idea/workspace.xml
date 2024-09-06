@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene2.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/StartScene2.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Menu/GameStartMenu2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Menu/GameStartMenu2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/PlayIntroVideo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/PlayIntroVideo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/MenuInicial/Narradorinicio.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/MenuInicial/Narradorinicio.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/Movilizacion.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/Movilizacion.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Socket/ObjectVR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Socket/ObjectVR.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/NarrationSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/NarrationSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/UISocketCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/UISocketCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/VideoAudioSync.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/VideoAudioSync.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +187,8 @@
       <workItem from="1725395354051" duration="11198000" />
       <workItem from="1725463176244" duration="5634000" />
       <workItem from="1725495675505" duration="10466000" />
-      <workItem from="1725550839994" duration="1909000" />
+      <workItem from="1725550839994" duration="2076000" />
+      <workItem from="1725650654061" duration="8972000" />
     </task>
     <servers />
   </component>

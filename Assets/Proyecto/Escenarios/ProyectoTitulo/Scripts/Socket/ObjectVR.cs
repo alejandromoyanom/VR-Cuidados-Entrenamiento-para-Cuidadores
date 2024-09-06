@@ -11,9 +11,13 @@ public class ObjectVR : MonoBehaviour
     private Rigidbody rb;
     private Vector3 initialPosition;
     private Quaternion initialRotation;
+    private NarrationManager narrationManager;
 
+    private static bool NarrationPlayed = false;
     void Start()
     {
+        narrationManager = FindObjectOfType<NarrationManager>();
+        
         // Obtener el componente XRGrabInteractable si está presente
         grabInteractable = GetComponent<XRGrabInteractable>();
         outline = GetComponent<Outline>();
@@ -42,6 +46,13 @@ public class ObjectVR : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         // Activar el socket al agarrar el objeto
         socket.SetActive(true);
+        
+        
+        if (gameObject.name is "Ropa" or "Alcohol" && !NarrationPlayed)
+        {
+            narrationManager.PlayNextNarration(); // Reproduce la narración
+            NarrationPlayed = true; // Marcar como reproducida
+        }
     }
 
     void OnReleased(SelectExitEventArgs args)

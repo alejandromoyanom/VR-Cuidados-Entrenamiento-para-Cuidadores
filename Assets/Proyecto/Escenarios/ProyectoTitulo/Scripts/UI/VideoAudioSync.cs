@@ -20,11 +20,16 @@ public class VideoAudioSync : MonoBehaviour
         // Verificar si el tutorial ya se ha completado
         if (PlayerPrefs.GetInt(TutorialCompletedKey, 0) == 1)
         {
-            
             faderScreen.SetActive(true);
 
             // Reproducir la siguiente narración al iniciar la escena
             narrationManager.PlayNextNarration();
+
+            // Verificar si estamos en la escena "CaidaEntorno"
+            if (SceneManager.GetActiveScene().name == "CaidaEntorno")
+            {
+                StartCoroutine(PlayAdditionalNarrationForCaidaEntorno());
+            }
             return;
         }
         
@@ -80,5 +85,13 @@ public class VideoAudioSync : MonoBehaviour
             
             narrationManager.PlayNextNarration();
         }
+    }
+    
+    IEnumerator PlayAdditionalNarrationForCaidaEntorno()
+    {
+        // Esperar hasta que la primera narración termine
+        yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration() + 1f);
+        
+        narrationManager.PlayNextNarration();
     }
 }
