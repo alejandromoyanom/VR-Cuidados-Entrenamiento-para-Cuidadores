@@ -6,6 +6,7 @@ public class ObjectVR : MonoBehaviour
     public GameObject socket; // Referencia al socket específico asociado al objeto
     public UISocketCounter uiSocketCounter;
     public GameObject canvasGrab;
+    public GameObject canvasGrab2;
     
     private XRGrabInteractable grabInteractable; // Componente para detectar si está siendo agarrado
     private bool isNearSocket = false; // Bandera para verificar si el objeto está cerca del socket
@@ -57,6 +58,7 @@ public class ObjectVR : MonoBehaviour
             narrationManager.PlayNextNarration(); // Reproduce la narración
             NarrationPlayed = true; // Marcar como reproducida
             canvasGrab.SetActive(false);
+            canvasGrab2.SetActive(false);
         }
     }
 

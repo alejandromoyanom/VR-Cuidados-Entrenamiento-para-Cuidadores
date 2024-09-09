@@ -81,7 +81,7 @@ public class VideoAudioSync : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "CaidaEntorno")
         {
             // Esperar hasta que la primera narración termine
-            yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration());
+            yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration() + 1f);
             
             narrationManager.PlayNextNarration();
         }
