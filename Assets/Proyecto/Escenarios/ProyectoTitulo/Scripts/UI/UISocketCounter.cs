@@ -8,6 +8,7 @@ public class UISocketCounter : MonoBehaviour
     public Transform vrCamera; // La cámara VR
     public int totalObjects = 5; // Total de objetos a colocar
     private int currentCount = 0; // Conteo actual
+    private AudioSource audioSource;
     public TextMeshProUGUI counterText; // El texto de la UI
     public GameObject canvas; // Referencia al Canvas
     public NarrationManager narrationManager;
@@ -16,6 +17,7 @@ public class UISocketCounter : MonoBehaviour
     void Start()
     {
         UpdateCounterText();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -30,6 +32,8 @@ public class UISocketCounter : MonoBehaviour
     {
         currentCount++;
         UpdateCounterText();
+        audioSource.Play();
+        
         
         if (currentCount >= totalObjects)
         {

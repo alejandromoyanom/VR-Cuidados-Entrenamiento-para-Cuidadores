@@ -15,6 +15,8 @@ public class TwoPointGrab : MonoBehaviour
     
     public Transform rightAttachPoint;
     public NarrationManager narrationManager;
+    public GameObject canvasGrab;
+    public GameObject canvasGrab2;
     
     private float slowMoveSpeed = 0.3f; // Velocidad reducida al levantar el objeto
     private float slowTurnSpeed = 20f; // Velocidad de giro reducida al levantar el objeto
@@ -151,6 +153,8 @@ public class TwoPointGrab : MonoBehaviour
         { 
             // Permitir el movimiento cuando ambas manos estén sujetando
             rb.constraints = RigidbodyConstraints.None;
+            canvasGrab.SetActive(false);
+            canvasGrab2.SetActive(false);
 
             if (narracion == false)
             {

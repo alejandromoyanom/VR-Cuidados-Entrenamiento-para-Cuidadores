@@ -13,6 +13,12 @@ public class TemperatureControl : MonoBehaviour
     public XRSimpleInteractable increaseButton; // Botón para aumentar la temperatura
     public XRSimpleInteractable decreaseButton; // Botón para disminuir la temperatura
     public NarrationManager NarrationManager;
+    public GameObject leftShoe;
+    public GameObject rightShoe;
+    public GameObject canvasTrigger;
+    public GameObject canvasGrab;
+     
+    
 
     void Start()
     {
@@ -32,6 +38,10 @@ public class TemperatureControl : MonoBehaviour
                 increaseButton.enabled = false;
                 decreaseButton.enabled = false;
                 NarrationManager.PlayNextNarration();
+                leftShoe.SetActive(true);
+                rightShoe.SetActive(true);
+                canvasTrigger.SetActive(false);
+                canvasGrab.SetActive(true);
             }
         }
     }

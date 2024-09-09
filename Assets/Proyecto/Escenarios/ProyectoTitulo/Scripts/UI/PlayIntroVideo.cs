@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 public class PlayIntroVideo : MonoBehaviour
 {
@@ -39,12 +40,24 @@ public class PlayIntroVideo : MonoBehaviour
         audioSource.Play();
         videoPlayer.Play();
     }
+
     void OnVideoEnd(VideoPlayer vp)
     {
+        // Esperar hasta que termine el audio antes de desactivar el canvas
+        StartCoroutine(WaitForAudioToFinish());
+    }
+
+    IEnumerator WaitForAudioToFinish()
+    {
+        // Esperar a que el audio termine
+        while (audioSource.isPlaying)
+        {
+            yield return null; // Esperar un frame
+        }
+
+        // Reactivar rayos de interacción y desactivar el Canvas cuando el audio termine
         leftRayInteractor.enabled = true;
         rightRayInteractor.enabled = true;
-
-        // Desactivar el Canvas para ocultar el video
         videoCanvas.gameObject.SetActive(false);
     }
 }

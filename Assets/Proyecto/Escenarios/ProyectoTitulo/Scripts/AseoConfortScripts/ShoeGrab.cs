@@ -12,6 +12,7 @@ public class ShoeGrab : MonoBehaviour
     private ShoeManager shoeManager; // Referencia al ShoeManager
     private bool isNearSocket = false; // Bandera para verificar si el zapato está cerca del socket
     private Outline outline;
+    public GameObject canvasGrab;
     
     // Campos para almacenar la posición y rotación originales
     private Vector3 savedPosition;
@@ -60,6 +61,7 @@ public class ShoeGrab : MonoBehaviour
 
         // Activar el socket al agarrar el zapato
         socket.SetActive(true);
+        canvasGrab.SetActive(false);
         
         
         if (outline != null)

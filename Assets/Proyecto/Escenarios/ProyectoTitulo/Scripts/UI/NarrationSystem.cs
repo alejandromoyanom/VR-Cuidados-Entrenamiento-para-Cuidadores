@@ -117,7 +117,7 @@ public class NarrationManager : MonoBehaviour
         {
             StartCoroutine(DisableMovementWithDelay(0.5f));
         }
-
+        
         narrationAudioSource.clip = narrations[currentNarrationIndex];
         narrationAudioSource.Play();
 

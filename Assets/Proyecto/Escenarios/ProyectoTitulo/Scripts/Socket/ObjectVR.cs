@@ -4,14 +4,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ObjectVR : MonoBehaviour
 {
     public GameObject socket; // Referencia al socket específico asociado al objeto
+    public UISocketCounter uiSocketCounter;
+    public GameObject canvasGrab;
+    
     private XRGrabInteractable grabInteractable; // Componente para detectar si está siendo agarrado
     private bool isNearSocket = false; // Bandera para verificar si el objeto está cerca del socket
     private Outline outline;
-    public UISocketCounter uiSocketCounter; // Referencia al script UISocketCounter para incrementar el contador
     private Rigidbody rb;
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private NarrationManager narrationManager;
+    
+    
 
     private static bool NarrationPlayed = false;
     void Start()
@@ -52,6 +56,7 @@ public class ObjectVR : MonoBehaviour
         {
             narrationManager.PlayNextNarration(); // Reproduce la narración
             NarrationPlayed = true; // Marcar como reproducida
+            canvasGrab.SetActive(false);
         }
     }
 
