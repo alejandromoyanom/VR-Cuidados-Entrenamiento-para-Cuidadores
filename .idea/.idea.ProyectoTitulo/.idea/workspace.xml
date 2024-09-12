@@ -8,11 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Oculus/OculusProjectConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Oculus/OculusProjectConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/CaidaEntorno.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/CaidaEntorno.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/Movilizacion.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/Movilizacion.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Socket/ObjectVR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/Socket/ObjectVR.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/VideoAudioSync.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/UI/VideoAudioSync.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,31 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "develop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\janom\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\janom\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\janom\\AppData\\Local\\Symbols\\src"
-    ]
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Unity\ProyectoTitulo -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Unity\ProyectoTitulo" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -79,7 +67,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Unity\ProyectoTitulo -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Unity\ProyectoTitulo" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -196,6 +184,8 @@
       <workItem from="1725840204574" duration="4282000" />
       <workItem from="1725846797388" duration="10142000" />
       <workItem from="1725885345192" duration="3589000" />
+      <workItem from="1726110383452" duration="908000" />
+      <workItem from="1726113166140" duration="2449000" />
     </task>
     <servers />
   </component>
@@ -210,6 +200,7 @@
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
