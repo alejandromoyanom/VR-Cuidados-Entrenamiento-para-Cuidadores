@@ -5,7 +5,6 @@ using System.Collections;
 public class UISocketCounter : MonoBehaviour
 {
     public GameObject paño;
-    public Transform vrCamera; // La cámara VR
     public int totalObjects = 5; // Total de objetos a colocar
     private int currentCount = 0; // Conteo actual
     private AudioSource audioSource;
@@ -19,14 +18,7 @@ public class UISocketCounter : MonoBehaviour
         UpdateCounterText();
         audioSource = GetComponent<AudioSource>();
     }
-
-    void Update()
-    {
-        // Hacer que el Canvas siga la cámara
-        Vector3 cameraPosition = vrCamera.position + vrCamera.forward * 1.0f; // Ajusta la distancia según sea necesario
-        transform.position = cameraPosition;
-        transform.rotation = Quaternion.LookRotation(transform.position - vrCamera.position);
-    }
+    
 
     public void IncrementCounter()
     {

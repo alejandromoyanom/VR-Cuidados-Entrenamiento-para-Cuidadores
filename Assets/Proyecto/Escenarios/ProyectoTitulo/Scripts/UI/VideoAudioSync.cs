@@ -14,6 +14,7 @@ public class VideoAudioSync : MonoBehaviour
     public GameObject faderScreen;
 
     private const string TutorialCompletedKey = "TutorialCompleted";
+    private GameObject canvasObjeto;
 
     void Start()
     {

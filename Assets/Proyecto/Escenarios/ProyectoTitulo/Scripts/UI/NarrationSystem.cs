@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class NarrationManager : MonoBehaviour
@@ -12,7 +13,8 @@ public class NarrationManager : MonoBehaviour
     public AudioSource backgroundAudioSource; // AudioSource para el audio de fondo
     
     public GameObject xrOrigin; // Referencia al XR Origin
-    private DynamicMoveProvider moveProvider;
+    private ContinuousMoveProviderBase moveProvider;
+    private float originalMoveSpeed;
 
     private bool narrationInProgress = false; // Controlar si una narración está en progreso
     private bool narrationSequencePending = false; // Controlar si hay una secuencia pendiente
@@ -25,13 +27,11 @@ public class NarrationManager : MonoBehaviour
             Debug.LogError("No se encontró AudioSource");
         }
         
-        if (xrOrigin != null)
+        moveProvider = FindObjectOfType<ContinuousMoveProviderBase>();
+        
+        if (moveProvider != null)
         {
-            moveProvider = xrOrigin.GetComponent<DynamicMoveProvider>();
-            if (moveProvider == null)
-            {
-                Debug.LogError("No se encontró MoveProvider");
-            }
+            originalMoveSpeed = moveProvider.moveSpeed;
         }
         
         narrationAudioSource.loop = false; // Asegurarse de que el audio no se reproduzca en bucle
@@ -134,7 +134,7 @@ public class NarrationManager : MonoBehaviour
     private IEnumerator DisableMovementWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        moveProvider.enabled = false; // Desactivar el movimiento
+        moveProvider.moveSpeed = 0f;
     }
 
     private void ResumeMovementAndBackgroundAudio()
@@ -148,7 +148,7 @@ public class NarrationManager : MonoBehaviour
         
         if (moveProvider != null)
         {
-            moveProvider.enabled = true; // Reactivar el movimiento
+            moveProvider.moveSpeed = originalMoveSpeed;
         }
     }
 
