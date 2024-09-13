@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
@@ -18,6 +19,8 @@ public class NarrationManager : MonoBehaviour
 
     private bool narrationInProgress = false; // Controlar si una narración está en progreso
     private bool narrationSequencePending = false; // Controlar si hay una secuencia pendiente
+    
+    private string currentSceneName;
 
     void Start()
     {
@@ -36,6 +39,8 @@ public class NarrationManager : MonoBehaviour
         
         narrationAudioSource.loop = false; // Asegurarse de que el audio no se reproduzca en bucle
         narrationAudioSource.playOnAwake = false; // Evitar que se reproduzca al iniciar
+        
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     public void PlayNextNarration(bool disableMovement = false)
@@ -51,7 +56,7 @@ public class NarrationManager : MonoBehaviour
         else
         {
             Debug.Log("No hay más narraciones.");
-            SceneTransitionManager.singleton.GoToSceneAsync(5);
+            GoToFinalScene();
         }
     }
 
@@ -63,11 +68,10 @@ public class NarrationManager : MonoBehaviour
             return;
         }
 
-        currentNarrationIndex++;
-        StartCoroutine(PlayNarrationSequenceCoroutine());
+        GoToFinalScene();
     }
     
-    private IEnumerator PlayNarrationSequenceCoroutine()
+    /*private IEnumerator PlayNarrationSequenceCoroutine()
     {
         narrationInProgress = true;  // Marcar la narración como en progreso
         narrationSequencePending = false; // Reiniciar el estado de la secuencia pendiente
@@ -100,6 +104,33 @@ public class NarrationManager : MonoBehaviour
         }
 
         
+    }*/
+    
+    private void GoToFinalScene()
+    {
+        int finalSceneint;
+
+        // Determinar el nombre de la escena final basado en la escena actual
+        switch (currentSceneName)
+        {
+            case "AseoConfort":
+                finalSceneint = 6;
+                break;
+            case "CaidaEntorno":
+                finalSceneint = 7;
+                break;
+            case "Movilizacion":
+                finalSceneint = 8;
+                break;
+            case "SaludMental":
+                finalSceneint = 9;
+                break;
+            default:
+                finalSceneint = 5;
+                break;
+        }
+        
+        SceneTransitionManager.singleton.GoToSceneAsync(finalSceneint); 
     }
 
     private void PlayCurrentNarration(bool disableMovement)

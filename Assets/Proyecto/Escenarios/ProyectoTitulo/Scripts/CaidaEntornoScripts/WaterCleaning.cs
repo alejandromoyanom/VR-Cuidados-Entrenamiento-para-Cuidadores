@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,6 +52,7 @@ public class WaterCleaning : MonoBehaviour
         {
             isCleaning = true;
             canvas.SetActive(true);
+            audiosource.Play();
         }
 
         if (fillImage.fillAmount < 1f)
@@ -81,7 +83,9 @@ public class WaterCleaning : MonoBehaviour
         water.SetActive(false);
         isCleaning = false;
         audiosource.Stop();
-        narrationManager.PlayNarrationSequenceFromCurrent();
+        narrationManager.PlayNextNarration();
+        
+        StartCoroutine(PlayAdditionalAudios());
     }
 
     private void OnSelectEnter(SelectEnterEventArgs args)
@@ -132,5 +136,13 @@ public class WaterCleaning : MonoBehaviour
     {
         fillImage.fillAmount = targetValue;
         progressText.text = $"{(int)(fillImage.fillAmount * 100)}%";
+    }
+    
+    IEnumerator PlayAdditionalAudios()
+    {
+        // Esperar hasta que la primera narración termine
+        yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration() + 1f);
+        
+        narrationManager.PlayNarrationSequenceFromCurrent();
     }
 }

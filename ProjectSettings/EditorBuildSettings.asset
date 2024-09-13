@@ -18,14 +18,23 @@ EditorBuildSettings:
     path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/CaidaEntorno.unity
     guid: d620caeee85c9ee429d01016bccf2536
   - enabled: 1
-    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort2.unity
-    guid: 136c73854241a4d4483b9ee190d02966
-  - enabled: 0
     path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity
-    guid: 5a57ef5c29c48e944b3f5f758b3974f4
+    guid: 136c73854241a4d4483b9ee190d02966
   - enabled: 1
     path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/SelectionScene.unity
     guid: 2da8aeda1017e4142bd50562e564666e
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/EndAseoConfort.unity
+    guid: 13eea8e41d4342d4891d31de31d54fb3
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/EndCaidaEntorno.unity
+    guid: 371f176210407ba4e829bed343fa62ee
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/EndMovilizacion.unity
+    guid: 89978e5659826714a931fcd8441d5244
+  - enabled: 1
+    path: Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/EndSaludMental.unity
+    guid: e745f0b8e415ecb4088039305fe4e0e3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2779588573464a543a0dbb71383168a9,
       type: 2}
