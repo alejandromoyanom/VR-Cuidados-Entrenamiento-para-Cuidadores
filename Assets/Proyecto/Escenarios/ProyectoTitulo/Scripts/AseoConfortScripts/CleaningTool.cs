@@ -122,24 +122,30 @@ public class CleaningTool : MonoBehaviour
         fillImage.fillAmount = 1f;
         progressText.text = "100%";
         canvas.SetActive(false);
-        isCompleted = true; // Marcar la herramienta como completada
+        isCompleted = true;
         sequenceManager.ToolCompleted(this);
-        
-        // Detener el sonido al completar la limpiezas
+
         if (audioSource.isPlaying)
         {
             audioSource.Stop();
         }
-        
-        if (gameObject.name == "Toalla")
+
+        TriggerNextQueuedNarration(); // Reemplaza la llamada original con la nueva
+    }
+
+    private void TriggerNextQueuedNarration()
+    {
+        if (narrationManager != null)
         {
-            narrationManager.PlayNarrationSequenceFromCurrent(); // Reproducir todas las narraciones en secuencia
+            if (gameObject.name == "Toalla")
+            {
+                narrationManager.GoToFinalScene();
+            }
+            else
+            {
+                narrationManager.QueueNarration();
+            }
         }
-        else
-        {
-            narrationManager.PlayNextNarration();
-        }
-        
     }
 
     public void SetInteractable(bool state)

@@ -35,6 +35,8 @@ public class TwoPointGrab : MonoBehaviour
 
     private ContinuousMoveProviderBase moveProvider;
     private ContinuousTurnProviderBase turnProvider;
+    private bool shouldReduceSpeed = false; // Bandera para reducir la velocidad
+    private bool shouldRestoreSpeed = false; // Bandera para restaurar la velocidad
 
     void Start()
     {
@@ -68,6 +70,21 @@ public class TwoPointGrab : MonoBehaviour
         // Activar colliders iniciales
         SetCollidersActive(sittingColliders, true);
         SetCollidersActive(standingColliders, false);
+    }
+    
+    void Update()
+    {
+        if (shouldReduceSpeed && moveProvider != null)
+        {
+            moveProvider.moveSpeed = slowMoveSpeed;
+            turnProvider.turnSpeed = slowTurnSpeed;
+        }
+
+        if (shouldRestoreSpeed && moveProvider != null)
+        {
+            moveProvider.moveSpeed = originalMoveSpeed;
+            turnProvider.turnSpeed = originalTurnSpeed;
+        }
     }
     
 
@@ -156,7 +173,7 @@ public class TwoPointGrab : MonoBehaviour
             canvasGrab.SetActive(false);
             canvasGrab2.SetActive(false);
 
-            if (narracion == false)
+            if (!narracion)
             {
                 narrationManager.PlayThreeNarrations();
                 narracion = true;
@@ -182,7 +199,9 @@ public class TwoPointGrab : MonoBehaviour
                 adjustedAttachPoint = true;
             }
             
-            ReduceMovementAndTurnSpeeds();
+            shouldReduceSpeed = true; // Activar la reducción de velocidad
+            shouldRestoreSpeed = false; // Asegurarse de que no se restaure la velocidad aún
+            //ReduceMovementAndTurnSpeeds();
         }
     }
     
@@ -201,15 +220,8 @@ public class TwoPointGrab : MonoBehaviour
 
     void RestoreMovementAndTurnSpeeds()
     {
-        if (moveProvider != null)
-        {
-            moveProvider.moveSpeed = originalMoveSpeed;
-        }
-
-        if (turnProvider != null)
-        {
-            turnProvider.turnSpeed = originalTurnSpeed;
-        }
+        shouldReduceSpeed = false; // Desactivar la reducción de velocidad
+        shouldRestoreSpeed = true; // Activar la restauración de velocidad
     }
 
     void OnTriggerEnter(Collider other)
@@ -248,7 +260,7 @@ public class TwoPointGrab : MonoBehaviour
                 SetCollidersActive(sittingColliders, true);
                 SetCollidersActive(standingColliders, false);
             }
-            narrationManager.PlayNarrationSequenceFromCurrent();
+            narrationManager.PlayFinalScene();
         }
     }
 

@@ -9,6 +9,7 @@ public class NarrationManager : MonoBehaviour
 {
     public List<AudioClip> narrations; // Lista de clips de narración
     private int currentNarrationIndex = -1; // Índice de la narración actual
+    private Queue<int> queuedNarrations = new Queue<int>();
 
     private AudioSource narrationAudioSource;
     public AudioSource backgroundAudioSource; // AudioSource para el audio de fondo
@@ -60,7 +61,7 @@ public class NarrationManager : MonoBehaviour
         }
     }
 
-    public void PlayNarrationSequenceFromCurrent()
+    public void PlayFinalScene()
     {
         if (narrationInProgress)
         {
@@ -71,42 +72,7 @@ public class NarrationManager : MonoBehaviour
         GoToFinalScene();
     }
     
-    /*private IEnumerator PlayNarrationSequenceCoroutine()
-    {
-        narrationInProgress = true;  // Marcar la narración como en progreso
-        narrationSequencePending = false; // Reiniciar el estado de la secuencia pendiente
-
-        while (currentNarrationIndex < narrations.Count)
-        {
-            // Reproducir la narración actual
-            PlayCurrentNarration(false); // Desactiva el movimiento mientras se reproduce
-
-            // Esperar hasta que termine la narración actual
-            yield return new WaitForSeconds(narrationAudioSource.clip.length + 1f);
-
-            // Avanzar al siguiente índice
-            currentNarrationIndex++;
-        }
-
-        // Al terminar la secuencia, reactivar el movimiento
-        ResumeMovementAndBackgroundAudio();
-
-        narrationInProgress = false;  // Marcar que la narración ha terminado
-
-        // Verifica que el SceneTransitionManager exista antes de usarlo
-        if (SceneTransitionManager.singleton != null)
-        {
-            SceneTransitionManager.singleton.GoToSceneAsync(5); // Cambiar de escena al terminar
-        }
-        else
-        {
-            Debug.LogError("SceneTransitionManager no se encuentra o es nulo.");
-        }
-
-        
-    }*/
-    
-    private void GoToFinalScene()
+    public void GoToFinalScene()
     {
         int finalSceneint;
 
@@ -156,6 +122,65 @@ public class NarrationManager : MonoBehaviour
         Invoke(nameof(ResumeMovementAndBackgroundAudio), narrationAudioSource.clip.length);
         Invoke(nameof(FinishNarration), narrationAudioSource.clip.length + 1f);
     }
+    
+    public void QueueNarration(bool disableMovement = false)
+    {
+        if (narrationInProgress)
+        {
+            if (currentNarrationIndex < narrations.Count - 1)
+            {
+                queuedNarrations.Enqueue(currentNarrationIndex + 1);
+            }
+            return;
+        }
+
+        if (currentNarrationIndex < narrations.Count - 1)
+        {
+            currentNarrationIndex++;
+            PlayQueuedNarration(disableMovement);
+        }
+        else
+        {
+            Debug.Log("No hay más narraciones.");
+            GoToFinalScene();
+        }
+    }
+
+    private void PlayQueuedNarration(bool disableMovement)
+    {
+        narrationInProgress = true;
+
+        if (backgroundAudioSource != null)
+        {
+            backgroundAudioSource.Pause();
+        }
+
+        xrOrigin.GetComponent<FootstepSound>().enabled = false;
+
+        if (moveProvider != null && !disableMovement)
+        {
+            StartCoroutine(DisableMovementWithDelay(0.5f));
+        }
+
+        narrationAudioSource.clip = narrations[currentNarrationIndex];
+        narrationAudioSource.Play();
+
+        // Manejar el final de la narración
+        Invoke(nameof(ResumeMovementAndBackgroundAudio), narrationAudioSource.clip.length);
+        Invoke(nameof(FinishQueuedNarration), narrationAudioSource.clip.length + 1f);
+    }
+
+    private void FinishQueuedNarration()
+    {
+        narrationInProgress = false;
+
+        if (queuedNarrations.Count > 0)
+        {
+            currentNarrationIndex = queuedNarrations.Dequeue();
+            PlayQueuedNarration(false);
+        }
+    }
+
 
     private void FinishNarration()
     {
@@ -223,7 +248,7 @@ public class NarrationManager : MonoBehaviour
         // Verificar si hay una secuencia pendiente
         if (narrationSequencePending)
         {
-            PlayNarrationSequenceFromCurrent();  // Ejecutar la secuencia pendiente si existe
+            PlayFinalScene();  // Ejecutar la secuencia pendiente si existe
         }
     }
 }

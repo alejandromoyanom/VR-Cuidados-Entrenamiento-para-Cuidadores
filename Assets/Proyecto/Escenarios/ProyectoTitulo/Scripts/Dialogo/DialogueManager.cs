@@ -191,7 +191,7 @@ public class DialogueManager : MonoBehaviour
         playerInteract.DeactivateCanvas();
         if (narrationManager != null)
         {
-            narrationManager.PlayNarrationSequenceFromCurrent(); // Iniciar la secuencia desde la narración actual
+            narrationManager.PlayFinalScene(); // Iniciar la secuencia desde la narración actual
         }
         canInteract = false;
     }

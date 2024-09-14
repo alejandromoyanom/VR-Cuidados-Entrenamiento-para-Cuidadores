@@ -53,13 +53,15 @@ public class WaterCleaning : MonoBehaviour
         {
             isCleaning = true;
             canvas.SetActive(true);
-            audiosource.Play();
+            if (!audiosource.isPlaying) // Reproduce el audio solo si no está reproduciéndose
+            {
+                audiosource.Play();
+            }
         }
 
         if (fillImage.fillAmount < 1f)
         {
             UpdateProgressValue(Mathf.Clamp01(fillImage.fillAmount + Time.deltaTime / animationDuration));
-            audiosource.Play();
         }
         else
         {
@@ -83,7 +85,10 @@ public class WaterCleaning : MonoBehaviour
         canvas.SetActive(false);
         water.SetActive(false);
         isCleaning = false;
-        audiosource.Stop();
+        if (audiosource.isPlaying)
+        {
+            audiosource.Stop();
+        }
         narrationManager.PlayNextNarration();
         
         StartCoroutine(PlayAdditionalAudios());
@@ -145,6 +150,6 @@ public class WaterCleaning : MonoBehaviour
         // Esperar hasta que la primera narración termine
         yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration() + 1f);
         
-        narrationManager.PlayNarrationSequenceFromCurrent();
+        narrationManager.PlayFinalScene();
     }
 }
