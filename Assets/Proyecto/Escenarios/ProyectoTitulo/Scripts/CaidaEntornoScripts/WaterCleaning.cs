@@ -14,6 +14,7 @@ public class WaterCleaning : MonoBehaviour
 
     public GameObject water; // Referencia al objeto de agua
     public NarrationManager narrationManager;
+    public GameObject punto;
 
     private bool isCleaning = false;
     private bool narrationPlayed = false; // Para asegurar que la narración se reproduce solo una vez
@@ -100,6 +101,7 @@ public class WaterCleaning : MonoBehaviour
         if (!narrationPlayed)
         {
             narrationManager.PlayNextNarration();
+            punto.SetActive(true);
             narrationPlayed = true;
         }
     }
