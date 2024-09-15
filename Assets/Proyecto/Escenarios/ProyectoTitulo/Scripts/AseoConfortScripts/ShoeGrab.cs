@@ -4,6 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ShoeGrab : MonoBehaviour
 {
     public GameObject socket; // Referencia al socket específico asociado al zapato
+    private AudioSource audioSource;
     private XRGrabInteractable grabInteractable; // Componente para detectar si está siendo agarrado
     private Rigidbody rb;
     private Collider objectCollider;
@@ -27,6 +28,7 @@ public class ShoeGrab : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
         shoeManager = FindObjectOfType<ShoeManager>(); 
+        audioSource = GetComponent<AudioSource>();
         
 
         if (grabInteractable == null)
@@ -78,6 +80,7 @@ public class ShoeGrab : MonoBehaviour
             objectCollider.enabled = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.SetParent(neutralContainer);
+            audioSource.Play();
             
             // Alinear la posición y rotación del zapato con el Attach Transform del socket
             transform.position = attachPoint.position;

@@ -9,6 +9,10 @@ public class TemperatureControl : MonoBehaviour
     private float minTemperature = 18f; // Temperatura mínima
     private float maxTemperature = 23f; // Temperatura máxima
     private AudioSource audioSource;
+    private Outline outlineLeft;
+    private Outline outlineRight;
+    private XRGrabInteractable grabInteractableLeft;
+    private XRGrabInteractable grabInteractableRight;
 
     public XRSimpleInteractable increaseButton; // Botón para aumentar la temperatura
     public XRSimpleInteractable decreaseButton; // Botón para disminuir la temperatura
@@ -24,6 +28,10 @@ public class TemperatureControl : MonoBehaviour
     {
         UpdateTemperatureText();
         audioSource = GetComponent<AudioSource>();
+        outlineLeft = leftShoe.GetComponent<Outline>();
+        outlineRight = rightShoe.GetComponent<Outline>();
+        grabInteractableLeft = leftShoe.GetComponent<XRGrabInteractable>();
+        grabInteractableRight = rightShoe.GetComponent<XRGrabInteractable>();
     }
 
     public void IncreaseTemperature()
@@ -38,8 +46,10 @@ public class TemperatureControl : MonoBehaviour
                 increaseButton.enabled = false;
                 decreaseButton.enabled = false;
                 NarrationManager.PlayNextNarration();
-                leftShoe.SetActive(true);
-                rightShoe.SetActive(true);
+                outlineLeft.enabled = true;
+                outlineRight.enabled = true;
+                grabInteractableLeft.enabled = true;
+                grabInteractableRight.enabled = true;
                 canvasTrigger.SetActive(false);
                 canvasGrab.SetActive(true);
             }
