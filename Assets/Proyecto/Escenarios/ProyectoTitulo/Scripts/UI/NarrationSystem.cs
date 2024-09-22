@@ -159,7 +159,7 @@ public class NarrationManager : MonoBehaviour
 
         if (moveProvider != null && !disableMovement)
         {
-            StartCoroutine(DisableMovementWithDelay(0.5f));
+            StartCoroutine(DisableMovementWithDelay(0.3f));
         }
 
         narrationAudioSource.clip = narrations[currentNarrationIndex];

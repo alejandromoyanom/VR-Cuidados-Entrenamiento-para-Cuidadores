@@ -12,6 +12,8 @@ public class VideoAudioSync : MonoBehaviour
     public Canvas videoCanvas;
     public NarrationManager narrationManager;
     public GameObject faderScreen;
+    private ContinuousMoveProviderBase moveProvider;
+    private float originalMoveSpeed;
 
     private const string TutorialCompletedKey = "TutorialCompleted";
     private GameObject canvasObjeto;
@@ -34,6 +36,13 @@ public class VideoAudioSync : MonoBehaviour
             return;
         }
         
+        moveProvider = FindObjectOfType<ContinuousMoveProviderBase>();
+        
+        if (moveProvider != null)
+        {
+            originalMoveSpeed = moveProvider.moveSpeed;
+        }
+        
 
         // Asegúrate de que el video no comience automáticamente
         videoPlayer.playOnAwake = false;
@@ -53,6 +62,10 @@ public class VideoAudioSync : MonoBehaviour
         videoCanvas.gameObject.SetActive(true);
         audioSource.Play();
         videoPlayer.Play();
+        if (moveProvider != null)
+        {
+            moveProvider.moveSpeed = 0f;
+        }
     }
 
     void OnVideoEnd(VideoPlayer vp)
@@ -61,6 +74,11 @@ public class VideoAudioSync : MonoBehaviour
         videoPlayer.Stop();
         audioSource.Stop();
         videoCanvas.gameObject.SetActive(false);
+        
+        if (moveProvider != null)
+        {
+            moveProvider.moveSpeed = originalMoveSpeed;
+        }
         
         // Marcar el tutorial como completado
         PlayerPrefs.SetInt(TutorialCompletedKey, 1);
