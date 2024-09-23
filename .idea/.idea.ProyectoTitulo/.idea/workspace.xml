@@ -6,6 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="6f9e2a5b-d3d6-4fc3-b6e9-6455a672050d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProyectoTitulo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scenes/AseoConfort.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ShoeGrab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ShoeGrab.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ShoeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Scripts/AseoConfortScripts/ShoeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/10-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/10-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/10-AseoConfort.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/10-AseoConfort.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/11-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/11-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/11-AseoConfort.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/11-AseoConfort.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/3-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/3-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/3-AseoConfort.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/3-AseoConfort.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/4-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/4-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/4-AseoConfort.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/4-AseoConfort.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/5-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/5-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/5-AseoConfort.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/5-AseoConfort.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/6-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/6-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/6-AseoConfort.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/6-AseoConfort.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/7-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/7-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/7-AseoConfort.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/7-AseoConfort.mp3.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/8-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/8-AseoConfort.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/9-AseoConfort.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Proyecto/Escenarios/ProyectoTitulo/Sounds/Narraciones/AseoConfort/9-AseoConfort.mp3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +219,8 @@
       <workItem from="1726456723660" duration="57000" />
       <workItem from="1726784615753" duration="933000" />
       <workItem from="1727037889226" duration="2844000" />
+      <workItem from="1727045912357" duration="2522000" />
+      <workItem from="1727049068519" duration="1673000" />
     </task>
     <servers />
   </component>

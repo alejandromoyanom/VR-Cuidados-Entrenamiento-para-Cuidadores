@@ -18,6 +18,8 @@ public class ShoeGrab : MonoBehaviour
     // Campos para almacenar la posición y rotación originales
     private Vector3 savedPosition;
     private Quaternion savedRotation;
+    
+    private static bool narrationPlayed = false;
 
     void Start()
     {
@@ -69,6 +71,13 @@ public class ShoeGrab : MonoBehaviour
         if (outline != null)
         {
             outline.enabled = false;
+        }
+        
+        if (!narrationPlayed)
+        {
+            // Reproducir la narración y marcarla como reproducida
+            FindObjectOfType<NarrationManager>().QueueNarration(true);
+            narrationPlayed = true;
         }
     }
 

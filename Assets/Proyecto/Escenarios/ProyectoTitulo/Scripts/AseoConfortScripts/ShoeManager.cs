@@ -21,7 +21,7 @@ public class ShoeManager : MonoBehaviour
         if (shoesPlaced >= 2)
         {
             toolsGameObject.SetActive(true);
-            narrationManager.PlayNextNarration();
+            narrationManager.QueueNarration();
             
         }
     }
