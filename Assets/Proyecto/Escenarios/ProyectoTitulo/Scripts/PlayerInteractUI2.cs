@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerInteractUI2 : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerInteractUI2 : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactableText;
     private bool hasInteractedWithNPC = false;
     private bool audioPlayed = false;
+    private ContinuousMoveProviderBase moveProvider;
+    private float originalMoveSpeed;
+
 
     // Variables públicas para el XR Origin y la posición objetivo
     public GameObject xrOrigin; // El XR Origin que se moverá
@@ -21,6 +25,17 @@ public class PlayerInteractUI2 : MonoBehaviour
     public NarrationManager narrationManager;
 
     private bool isMoving = false; // Control del movimiento en progreso
+
+
+    private void Start()
+    {
+        moveProvider = FindObjectOfType<ContinuousMoveProviderBase>();
+        
+        if (moveProvider != null)
+        {
+            originalMoveSpeed = moveProvider.moveSpeed;
+        }
+    }
 
     private void Update()
     {
@@ -70,6 +85,10 @@ public class PlayerInteractUI2 : MonoBehaviour
     private void StartMoveToNPC()
     {
         isMoving = true; // Activar la bandera de movimiento
+        if (moveProvider != null)
+        {
+            moveProvider.moveSpeed = 0f;
+        }
     }
 
     // Método para mover y rotar suavemente el XR Origin
@@ -89,6 +108,10 @@ public class PlayerInteractUI2 : MonoBehaviour
         if (Vector3.Distance(xrOrigin.transform.position, targetPosition.position) < distanceThreshold)
         {
             isMoving = false;
+            if (moveProvider != null)
+            {
+                moveProvider.moveSpeed = originalMoveSpeed;
+            }
         }
     }
 }
