@@ -102,7 +102,7 @@ public class VideoAudioSync : MonoBehaviour
             // Esperar hasta que la primera narración termine
             yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration() + 1f);
             
-            narrationManager.PlayNextNarration();
+            narrationManager.QueueNarration();
         }
     }
     
@@ -111,6 +111,6 @@ public class VideoAudioSync : MonoBehaviour
         // Esperar hasta que la primera narración termine
         yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration() + 1f);
         
-        narrationManager.PlayNextNarration();
+        narrationManager.QueueNarration();
     }
 }

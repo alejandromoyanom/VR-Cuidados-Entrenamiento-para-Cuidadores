@@ -32,9 +32,18 @@ public class ObjectInteraction : MonoBehaviour
 
     void OnReleased(SelectExitEventArgs args)
     {
-        // Restaurar la posición y rotación iniciales al soltar
-        transform.position = initialPosition;
-        transform.rotation = initialRotation;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+        if (grabInteractable.interactorsSelecting.Count > 0)
+        {
+            // Si aún está siendo agarrado por otra mano, no hacer nada
+            return;
+        }
+        else
+        {
+            // Restaurar la posición y rotación iniciales al soltar
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+
     }
 }
