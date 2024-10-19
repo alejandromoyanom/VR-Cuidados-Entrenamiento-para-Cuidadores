@@ -7,25 +7,25 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class WaterCleaning : MonoBehaviour
 {
-    [SerializeField] public GameObject canvas; // Haz esto público para que sea accesible desde ProximityTrigger
-    [SerializeField] private TMP_Text progressText; // Texto que muestra el porcentaje
-    [SerializeField] private Image fillImage; // Imagen que representa la barra de progreso
-    [SerializeField] private float animationDuration = 5f; // Duración de la animación
+    [SerializeField] public GameObject canvas; 
+    [SerializeField] private TMP_Text progressText; 
+    [SerializeField] private Image fillImage; 
+    [SerializeField] private float animationDuration = 5f; 
 
-    public GameObject water; // Referencia al objeto de agua
+    public GameObject water; 
     public NarrationManager narrationManager;
     public GameObject punto;
 
     private bool isCleaning = false;
-    private bool narrationPlayed = false; // Para asegurar que la narración se reproduce solo una vez
+    private bool narrationPlayed = false; 
     private XRGrabInteractable grabInteractable;
     private BoxCollider waterCollider;
-    private bool isInsideWaterCollider = false; // Para verificar si el paño está dentro del agua
+    private bool isInsideWaterCollider = false; 
     private AudioSource audiosource;
 
     void Start()
     {
-        canvas.SetActive(false); // Asegúrate de que el canvas esté desactivado al iniciar el juego
+        canvas.SetActive(false); 
         grabInteractable = GetComponent<XRGrabInteractable>();
         waterCollider = water.GetComponent<BoxCollider>();
         audiosource = GetComponent<AudioSource>();
@@ -49,11 +49,11 @@ public class WaterCleaning : MonoBehaviour
 
     private void StartCleaning()
     {
-        if (!isCleaning) // Solo iniciar si no se está limpiando ya
+        if (!isCleaning) 
         {
             isCleaning = true;
             canvas.SetActive(true);
-            if (!audiosource.isPlaying) // Reproduce el audio solo si no está reproduciéndose
+            if (!audiosource.isPlaying) 
             {
                 audiosource.Play();
             }
@@ -71,7 +71,7 @@ public class WaterCleaning : MonoBehaviour
 
     private void StopCleaning()
     {
-        if (isCleaning) // Solo detener si se estaba limpiando
+        if (isCleaning) 
         {
             isCleaning = false;
             canvas.SetActive(false);
@@ -136,7 +136,7 @@ public class WaterCleaning : MonoBehaviour
 
     private void ResetProgressBar()
     {
-        UpdateProgressValue(0f); // Resetea la barra de progreso a 0
+        UpdateProgressValue(0f);
     }
 
     private void UpdateProgressValue(float targetValue)
@@ -147,7 +147,6 @@ public class WaterCleaning : MonoBehaviour
     
     IEnumerator PlayAdditionalAudios()
     {
-        // Esperar hasta que la primera narración termine
         yield return new WaitForSeconds(narrationManager.GetCurrentNarrationDuration() + 1f);
         
         narrationManager.PlayFinalScene();

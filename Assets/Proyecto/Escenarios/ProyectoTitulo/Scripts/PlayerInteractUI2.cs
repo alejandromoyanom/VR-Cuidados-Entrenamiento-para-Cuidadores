@@ -13,18 +13,16 @@ public class PlayerInteractUI2 : MonoBehaviour
     private bool audioPlayed = false;
     private ContinuousMoveProviderBase moveProvider;
     private float originalMoveSpeed;
-
-
-    // Variables públicas para el XR Origin y la posición objetivo
-    public GameObject xrOrigin; // El XR Origin que se moverá
-    public Transform targetPosition; // La posición frente al NPC
-    public float moveSpeed = 1.0f; // Velocidad de movimiento
-    public float rotationSpeed = 1.0f; // Velocidad de rotación
-    public float distanceThreshold = 0.1f; // Umbral de distancia para considerar que ha llegado al destino
+    
+    public GameObject xrOrigin; 
+    public Transform targetPosition; 
+    public float moveSpeed = 1.0f; 
+    public float rotationSpeed = 1.0f;
+    public float distanceThreshold = 0.1f; 
     
     public NarrationManager narrationManager;
 
-    private bool isMoving = false; // Control del movimiento en progreso
+    private bool isMoving = false;
 
 
     private void Start()
@@ -47,8 +45,7 @@ public class PlayerInteractUI2 : MonoBehaviour
         {
             Hide();
         }
-
-        // Si está en movimiento, mover y rotar el XR Origin
+        
         if (isMoving)
         {
             MoveAndRotatePlayer();
@@ -72,26 +69,23 @@ public class PlayerInteractUI2 : MonoBehaviour
     {
         containerUI.SetActive(false);
     }
-
-    // Método llamado cuando el jugador interactúa con el NPC
     public void OnInteract()
     {
         hasInteractedWithNPC = true;
         Hide();
-        StartMoveToNPC(); // Iniciar el movimiento al interactuar
+        StartMoveToNPC(); 
     }
 
     // Iniciar el movimiento hacia el NPC
     private void StartMoveToNPC()
     {
-        isMoving = true; // Activar la bandera de movimiento
+        isMoving = true;
         if (moveProvider != null)
         {
             moveProvider.moveSpeed = 0f;
         }
     }
-
-    // Método para mover y rotar suavemente el XR Origin
+    
     private void MoveAndRotatePlayer()
     {
         // Mover el XR Origin hacia la posición objetivo

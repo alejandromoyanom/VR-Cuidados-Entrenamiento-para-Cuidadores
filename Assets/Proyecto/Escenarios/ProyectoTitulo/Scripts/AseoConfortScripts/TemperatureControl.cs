@@ -4,7 +4,7 @@ using TMPro; // Si estás usando TextMeshPro para el texto de la temperatura
 
 public class TemperatureControl : MonoBehaviour
 {
-    public TextMeshProUGUI temperatureText; // Referencia al texto que muestra la temperatura
+    public TextMeshProUGUI temperatureText; 
     public float temperature = 18f; // Temperatura inicial
     private float minTemperature = 18f; // Temperatura mínima
     private float maxTemperature = 23f; // Temperatura máxima

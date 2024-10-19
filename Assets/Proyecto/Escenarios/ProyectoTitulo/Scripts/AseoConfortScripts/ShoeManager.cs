@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShoeManager : MonoBehaviour
 {
-    public GameObject toolsGameObject; // El GameObject que contiene las herramientas
+    public GameObject toolsGameObject; 
     public NarrationManager narrationManager;
     
     private int shoesPlaced = 0; // Contador de zapatos colocados

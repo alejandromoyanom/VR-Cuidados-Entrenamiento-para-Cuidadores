@@ -119,7 +119,7 @@ public class TwoPointGrab : MonoBehaviour
 
     void OnRelease(SelectExitEventArgs args)
     {
-        if (handsGrabbing > 0) // Verificar que no sea menor que cero antes de restar
+        if (handsGrabbing > 0) 
         {
             handsGrabbing--;
         }
@@ -166,9 +166,8 @@ public class TwoPointGrab : MonoBehaviour
 
     void CheckBothHandsGrabbing()
     {
-        if (handsGrabbing >= 2 && !isSeated) // Verificar que no esté en la silla
+        if (handsGrabbing >= 2 && !isSeated) 
         { 
-            // Permitir el movimiento cuando ambas manos estén sujetando
             rb.constraints = RigidbodyConstraints.None;
             canvasGrab.SetActive(false);
             canvasGrab2.SetActive(false);
@@ -179,13 +178,13 @@ public class TwoPointGrab : MonoBehaviour
                 narracion = true;
             }
             
-            if (canAnimate) // Solo activar si las animaciones están permitidas
+            if (canAnimate) 
             {
                 
                 animator.SetBool("StartLegMovement", true);
             }
 
-            // Desmarcar el isTrigger del collider específico al agarrar
+           
             if (specificCollider != null)
             {
                 specificCollider.isTrigger = false;
@@ -199,24 +198,12 @@ public class TwoPointGrab : MonoBehaviour
                 adjustedAttachPoint = true;
             }
             
-            shouldReduceSpeed = true; // Activar la reducción de velocidad
-            shouldRestoreSpeed = false; // Asegurarse de que no se restaure la velocidad aún
-            //ReduceMovementAndTurnSpeeds();
+            shouldReduceSpeed = true; 
+            shouldRestoreSpeed = false; 
         }
     }
     
-    void ReduceMovementAndTurnSpeeds()
-    {
-        if (moveProvider != null)
-        {
-            moveProvider.moveSpeed = slowMoveSpeed;
-        }
 
-        if (turnProvider != null)
-        {
-            turnProvider.turnSpeed = slowTurnSpeed;
-        }
-    }
 
     void RestoreMovementAndTurnSpeeds()
     {
@@ -237,7 +224,7 @@ public class TwoPointGrab : MonoBehaviour
             rb.useGravity = false;
             handsGrabbing = 0;
             isLeftHandFirst = false;
-            isSeated = true; // Marcar como sentado
+            isSeated = true;
             
             canAnimate = false;
             
@@ -251,12 +238,11 @@ public class TwoPointGrab : MonoBehaviour
             
             
 
-            // Marcar el isTrigger del collider específico al sentarse en la silla
+            
             if (specificCollider != null)
             {
                 specificCollider.isTrigger = true;
-
-                // Mantener los colliders de sentado activos
+                
                 SetCollidersActive(sittingColliders, true);
                 SetCollidersActive(standingColliders, false);
             }
@@ -294,7 +280,6 @@ public class TwoPointGrab : MonoBehaviour
     
     void AdjustAttachPoint()
     {
-        // Subir la posición del punto de unión derecho en el eje Y por 0.3
         rightAttachPoint.localPosition += new Vector3(0, 0.3f, 0);
     }
 }

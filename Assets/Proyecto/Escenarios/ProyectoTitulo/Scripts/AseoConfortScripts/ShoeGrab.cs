@@ -5,13 +5,13 @@ public class ShoeGrab : MonoBehaviour
 {
     public GameObject socket; // Referencia al socket específico asociado al zapato
     private AudioSource audioSource;
-    private XRGrabInteractable grabInteractable; // Componente para detectar si está siendo agarrado
+    private XRGrabInteractable grabInteractable; 
     private Rigidbody rb;
     private Collider objectCollider;
     public Transform attachPoint;
-    private Transform neutralContainer; // Contenedor neutral en la escena
-    private ShoeManager shoeManager; // Referencia al ShoeManager
-    private bool isNearSocket = false; // Bandera para verificar si el zapato está cerca del socket
+    private Transform neutralContainer; 
+    private ShoeManager shoeManager; 
+    private bool isNearSocket = false; // Bool para verificar si el zapato está cerca del socket
     private Outline outline;
     public GameObject canvasGrab;
     
@@ -23,7 +23,6 @@ public class ShoeGrab : MonoBehaviour
 
     void Start()
     {
-        // Obtener el componente XRGrabInteractable si está presente
         grabInteractable = GetComponent<XRGrabInteractable>();
         neutralContainer = GameObject.Find("NeutralContainer").transform;
         outline = GetComponent<Outline>();
@@ -56,14 +55,12 @@ public class ShoeGrab : MonoBehaviour
         // Desvincular el zapato del personaje
         transform.SetParent(neutralContainer);
 
-        // Restaurar la posición y rotación globales para evitar movimientos inesperados
+        // Restaurar la posición y rotación globales
         transform.position = savedPosition;
         transform.rotation = savedRotation;
-
-        // Desbloquear las restricciones para que el zapato pueda moverse
+        
         rb.constraints = RigidbodyConstraints.None;
-
-        // Activar el socket al agarrar el zapato
+        
         socket.SetActive(true);
         canvasGrab.SetActive(false);
         
@@ -75,7 +72,6 @@ public class ShoeGrab : MonoBehaviour
         
         if (!narrationPlayed)
         {
-            // Reproducir la narración y marcarla como reproducida
             FindObjectOfType<NarrationManager>().QueueNarration(true);
             narrationPlayed = true;
         }

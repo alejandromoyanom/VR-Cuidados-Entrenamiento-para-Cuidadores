@@ -9,9 +9,9 @@ public class UISocketCounter : MonoBehaviour
     private int currentCount = 0; // Conteo actual
     private AudioSource audioSource;
     public TextMeshProUGUI counterText; // El texto de la UI
-    public GameObject canvas; // Referencia al Canvas
+    public GameObject canvas; 
     public NarrationManager narrationManager;
-    private float delayBeforeHide = 2f; // Tiempo de espera antes de desactivar el Canvas
+    private float delayBeforeHide = 2f; 
 
     void Start()
     {
@@ -36,13 +36,11 @@ public class UISocketCounter : MonoBehaviour
 
     private void UpdateCounterText()
     {
-        //counterText.text = $"<b>Objetos posicionados:</b> {currentCount} <color=#00FF00>/</color> {totalObjects}";
         counterText.text = $"<size=60><b>Progreso de la Tarea</b></size>\n<size=48>Objetos posicionados: {currentCount} <color=#00FF00>/</color> {totalObjects}</size>";
     }
     
     private IEnumerator HideCanvasAfterDelay()
     {
-        // Esperar el tiempo especificado antes de desactivar el Canvas
         yield return new WaitForSeconds(delayBeforeHide);
         canvas.SetActive(false);
         paño.SetActive(true);

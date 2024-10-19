@@ -96,7 +96,7 @@ public class DialogueManager : MonoBehaviour
 
     void ShowQuestion()
     {
-        isNPCTalking = false; // NPC ha terminado de hablar
+        isNPCTalking = false;
         npcText.gameObject.SetActive(false);
 
         if (currentQuestionIndex < dialogues[currentDialogueIndex].questions.Count)
@@ -130,7 +130,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
-            // Deselecciona cualquier objeto actualmente seleccionado
+            
             EventSystem.current.SetSelectedGameObject(null);
 
             questionPanel.SetActive(true); // Muestra el panel de preguntas
@@ -184,14 +184,13 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        // Aquí puedes manejar lo que sucede cuando el diálogo termina
         animator.SetBool("isTalking", false);
         NPCLookAt.position = NPCLookAtInitialPosition;
         isTalking?.Invoke(false);
         playerInteract.DeactivateCanvas();
         if (narrationManager != null)
         {
-            narrationManager.PlayFinalScene(); // Iniciar la secuencia desde la narración actual
+            narrationManager.PlayFinalScene(); 
         }
         canInteract = false;
     }

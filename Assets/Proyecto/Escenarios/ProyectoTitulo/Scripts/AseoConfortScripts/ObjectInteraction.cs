@@ -17,7 +17,6 @@ public class ObjectInteraction : MonoBehaviour
         initialPosition = transform.position;
         initialRotation = transform.rotation;
         
-        // Desactivar gravedad al inicio
         rb.constraints = RigidbodyConstraints.FreezeAll;
         
         // Suscribirse a los eventos

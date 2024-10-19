@@ -5,8 +5,8 @@ using TMPro;
 
 public class CleaningTool : MonoBehaviour
 {
-    public GameObject targetObject;  // Objeto objetivo (e.g., los pies)
-    public float cleaningTime = 3f;  // Tiempo necesario para completar la limpieza
+    public GameObject targetObject; 
+    public float cleaningTime = 3f;  
     public GameObject canvas;        // Canvas con la barra de progreso
     public Image fillImage;          // Imagen de la barra de progreso
     public TMP_Text progressText;    // Texto del progreso
@@ -17,7 +17,7 @@ public class CleaningTool : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     private Collider targetCollider;
     private bool isCleaning = false;
-    private bool isCompleted = false; // Indica si la limpieza ya se completó
+    private bool isCompleted = false;
     private float currentCleaningProgress = 0f;
     private CleaningSequenceManager sequenceManager;
     private Outline outline;
@@ -33,7 +33,7 @@ public class CleaningTool : MonoBehaviour
         
         outline = GetComponent<Outline>();
 
-        // Si el objeto no es el primero en la secuencia, desactivarlo
+        // Si el objeto no es el primero en la secuencia, se desactiva
         if (sequenceManager.GetCurrentTool() != this)
         {
             SetInteractable(false);
@@ -95,7 +95,7 @@ public class CleaningTool : MonoBehaviour
     private void StopCleaning()
     {
         isCleaning = false;
-        canvas.SetActive(false); // Opcional, ocultar el canvas si lo deseas al detener la limpieza
+        canvas.SetActive(false);
         if (audioSource.isPlaying)
         {
             audioSource.Stop();
@@ -130,7 +130,7 @@ public class CleaningTool : MonoBehaviour
             audioSource.Stop();
         }
 
-        TriggerNextQueuedNarration(); // Reemplaza la llamada original con la nueva
+        TriggerNextQueuedNarration(); 
     }
 
     private void TriggerNextQueuedNarration()
@@ -161,7 +161,6 @@ public class CleaningTool : MonoBehaviour
 
             if (state)
             {
-                // Resetear el progreso al activar la herramienta
                 ResetProgress();
             }
         }

@@ -33,24 +33,20 @@ public class GameStartMenu2 : MonoBehaviour
     public Button volverEscena3Button;
     public Button jugarEscena4Button;
     public Button volverEscena4Button;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         
         if (currentSceneName == "SelectionScene") 
         {
-            // Si estamos en la nueva escena, saltar el menú principal y mostrar la selección
             ShowSeleccion();
         }
         else
         {
-            // Si es la escena principal, mostrar el menú principal
             EnableMainMenu();
         }
-
-        // Hook events
+        
         continuarButton.onClick.AddListener(ShowSeleccion);
 
         escena1Button.onClick.AddListener(EnableEscena1);

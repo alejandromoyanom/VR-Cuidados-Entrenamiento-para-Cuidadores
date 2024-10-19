@@ -8,15 +8,14 @@ public class PlayerInteract2 : MonoBehaviour
     [SerializeField] private InputActionProperty selectButton;
     public Action npcInteract;
     public PlayerInteractUI2 playerInteractUI;
-    [SerializeField] private GameObject uiCanvas; // Referencia al Canvas
+    [SerializeField] private GameObject uiCanvas;
     [SerializeField] private XRRayInteractor rightHandRayInteractor; // Ray Interactor de la mano derecha
     [SerializeField] private XRRayInteractor leftHandRayInteractor;
 
-    private bool canvasActive = false; // Bandera para controlar el estado del Canvas
+    private bool canvasActive = false; 
 
     void Start()
     {
-        // Asegúrate de que el Canvas y los Ray Interactors estén desactivados al inicio
         uiCanvas.SetActive(false);
         rightHandRayInteractor.gameObject.SetActive(false);
         leftHandRayInteractor.gameObject.SetActive(false);

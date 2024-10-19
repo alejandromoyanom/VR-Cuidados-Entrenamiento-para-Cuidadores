@@ -38,15 +38,15 @@ public class NarrationManager : MonoBehaviour
             originalMoveSpeed = moveProvider.moveSpeed;
         }
         
-        narrationAudioSource.loop = false; // Asegurarse de que el audio no se reproduzca en bucle
-        narrationAudioSource.playOnAwake = false; // Evitar que se reproduzca al iniciar
+        narrationAudioSource.loop = false; 
+        narrationAudioSource.playOnAwake = false; 
         
         currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     public void PlayNextNarration(bool disableMovement = false)
     {
-        // No permitir que se reproduzcan nuevas narraciones si una ya está en progreso
+       
         if (narrationInProgress) return;
 
         if (currentNarrationIndex < narrations.Count - 1)
@@ -65,7 +65,7 @@ public class NarrationManager : MonoBehaviour
     {
         if (narrationInProgress)
         {
-            narrationSequencePending = true; // Marcar como pendiente si ya hay una en progreso
+            narrationSequencePending = true; 
             return;
         }
 
@@ -75,8 +75,7 @@ public class NarrationManager : MonoBehaviour
     public void GoToFinalScene()
     {
         int finalSceneint;
-
-        // Determinar el nombre de la escena final basado en la escena actual
+        
         switch (currentSceneName)
         {
             case "AseoConfort":
@@ -101,11 +100,11 @@ public class NarrationManager : MonoBehaviour
 
     private void PlayCurrentNarration(bool disableMovement)
     {
-        narrationInProgress = true;  // Marcar el inicio de la narración
+        narrationInProgress = true;  
 
         if (backgroundAudioSource != null)
         {
-            backgroundAudioSource.Pause(); // Pausar el audio de fondo
+            backgroundAudioSource.Pause(); 
         }
 
         xrOrigin.GetComponent<FootstepSound>().enabled = false;
@@ -117,8 +116,7 @@ public class NarrationManager : MonoBehaviour
         
         narrationAudioSource.clip = narrations[currentNarrationIndex];
         narrationAudioSource.Play();
-
-        // Manejar el final de la narración
+        
         Invoke(nameof(ResumeMovementAndBackgroundAudio), narrationAudioSource.clip.length);
         Invoke(nameof(FinishNarration), narrationAudioSource.clip.length + 1f);
     }

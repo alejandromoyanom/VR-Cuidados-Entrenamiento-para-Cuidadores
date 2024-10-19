@@ -25,8 +25,7 @@ public class ikfoot : MonoBehaviour
         currentNormal = newNormal = oldNormal = transform.up;
         lerp = 1;
     }
-
-    // Update is called once per frame
+    
 
     void Update()
     {

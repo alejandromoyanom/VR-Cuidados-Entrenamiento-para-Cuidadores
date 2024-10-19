@@ -9,9 +9,9 @@ public class PlayVoice : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Asegúrate de que el XR Origin tenga la etiqueta "Player"
+        if (other.CompareTag("Player")) 
         {
-            narrationManager.PlayNextNarration(); // Reproduce la siguiente narración
+            narrationManager.PlayNextNarration(); 
             puntoNarracion.SetActive(false);
         }
     }

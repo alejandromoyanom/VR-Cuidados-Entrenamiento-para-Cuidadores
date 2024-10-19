@@ -24,8 +24,7 @@ public class PlayIntroVideo : MonoBehaviour
         // Sincronizar la reproducción
         videoPlayer.Prepare();
         videoPlayer.prepareCompleted += SyncAndPlay;
-
-        // Detectar cuando el video ha terminado
+        
         videoPlayer.loopPointReached += OnVideoEnd;
     }
 
@@ -52,7 +51,7 @@ public class PlayIntroVideo : MonoBehaviour
         // Esperar a que el audio termine
         while (audioSource.isPlaying)
         {
-            yield return null; // Esperar un frame
+            yield return null; 
         }
 
         // Reactivar rayos de interacción y desactivar el Canvas cuando el audio termine
